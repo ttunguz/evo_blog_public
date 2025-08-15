@@ -1,0 +1,28 @@
+[
+  {
+    "model": "claude",
+    "strategy": "refined",
+    "score": 86.2,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "No data or statistics found",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 435 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent opening metaphor, clear structure with logical progression, strong technical writing style, good use of specific phases to organize argument | Weaknesses: Incomplete post with abrupt ending, lacks concrete data despite acknowledging need for it, claims about 'dramatic results' without supporting evidence, missing conclusion weakens overall impact"
+    }
+  },
+  {
+    "model": "gpt4",
+    "strategy": "refined",
+    "score": 83.5,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "3 paragraphs too long (>4 sentences) | Too many colons (4, max: 2) | No data or statistics found",
+      "cliches": "Found clich\u00e9s: next generation",
+      "brevity": "Word count: 415 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent prose style, clear thesis, strong opening, good use of specific examples like Glean and Notion, professional tone throughout | Weaknesses: Argument feels incomplete due to abrupt ending, lacks concrete data despite acknowledging the need for it, missing counterarguments or limitations, no strong conclusion to tie insights together"
+    }
+  }
+]

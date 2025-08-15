@@ -1,0 +1,17 @@
+Enterprise software procurement has always been a slog: RFP cycles drag on, stakeholders multiply, and by the time a choice is made, requirements have often shifted. But AI agents are compressing these timelines, transforming procurement from a bureaucratic marathon to a focused sprint.
+
+Traditionally, software decisions took months. Gartner research notes that the average B2B buying process involves six to ten decision makers, each armed with four or five pieces of information. The result is analysis paralysis. AI agents cut through this by automating vendor discovery, initial due diligence, and even contract comparisons.
+
+Consider how AI-first startups are leveraging agents to scan and summarize hundreds of vendor options in hours, not weeks. AI can parse product documentation, ingest pricing models, and flag compliance risks. Instead of endless spreadsheet jockeying, teams receive concise, context-aware recommendations. For example, platforms like Glean and Notion are integrating AI to help companies rapidly evaluate software options based on real usage patterns and internal search data.
+
+The benefits are measurable. McKinsey reports that companies using AI in procurement see significant reductions in time-to-decision and administrative overhead [NEEDS DATA: average reduction in procurement cycle times in companies using AI]. Automated agents don’t just accelerate the process—they improve it. They surface hidden contract terms, highlight compatibility issues, and can even simulate integration scenarios using historical company data.
+
+Yet, the transformation isn’t just about speed. AI agents enable smarter decisions by continuously learning from previous purchases, user feedback, and performance analytics. Imagine a system that remembers why you rejected a CRM tool last year and weighs that context in future evaluations. Over time, this institutional memory compounds, reducing repeated mistakes and vendor churn.
+
+Even established players are adapting. SAP and Oracle are embedding AI-driven procurement assistants to help customers navigate their sprawling product suites. These agents can answer nuanced questions about licensing, identify overlapping features, and suggest optimal bundles—tasks that previously required hours of manual research.
+
+For startup founders, this shift means fewer wasted cycles in vendor selection and faster access to the tools they need to scale. For VCs, it translates to portfolio companies moving faster and burning less runway on operational friction. The challenge is now less about gathering information and more about asking the right strategic questions.
+
+Of course, there are limits. AI agents aren’t a panacea. They can miss subtle cultural fit issues or over-emphasize quantifiable metrics at the expense of qualitative ones. Human judgment remains critical, especially for high-stakes purchases.
+
+Still, the direction is clear. As AI agents become more sophisticated, we’re approaching an era where enterprise procurement is closer to consumer-grade simplicity. What might happen when buying software for a 10,000-person company feels as seamless as ordering a SaaS tool on your phone? The next generation of procurement will reward those who adapt first—and leave behind those still waiting for the next committee meeting.

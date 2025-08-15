@@ -1,0 +1,84 @@
+{
+  "scoring_weights": {
+    "style_match": 0.35,
+    "content_quality": 0.30,
+    "engagement": 0.20,
+    "technical": 0.15
+  },
+  "style_criteria": {
+    "word_count_adherence": {
+      "weight": 0.15,
+      "target": 750,
+      "tolerance": 150
+    },
+    "paragraph_structure": {
+      "weight": 0.20,
+      "target_sentences": [2, 4],
+      "max_paragraph_length": 100
+    },
+    "tone_consistency": {
+      "weight": 0.25,
+      "reference_tone": "analytical_conversational"
+    },
+    "opening_strength": {
+      "weight": 0.20,
+      "max_words_first_sentence": 25
+    },
+    "conclusion_quality": {
+      "weight": 0.20,
+      "requires_cta": true
+    }
+  },
+  "content_criteria": {
+    "insight_density": {
+      "weight": 0.30,
+      "min_insights_per_section": 1
+    },
+    "data_integration": {
+      "weight": 0.25,
+      "min_data_points": 2,
+      "max_data_points": 5
+    },
+    "argument_coherence": {
+      "weight": 0.25,
+      "logical_flow_required": true
+    },
+    "originality": {
+      "weight": 0.20,
+      "avoid_cliches": true
+    }
+  },
+  "engagement_criteria": {
+    "readability": {
+      "weight": 0.35,
+      "target_flesch_reading_ease": 60,
+      "tolerance": 10
+    },
+    "hook_quality": {
+      "weight": 0.35,
+      "first_paragraph_engagement": true
+    },
+    "narrative_flow": {
+      "weight": 0.30,
+      "smooth_transitions": true
+    }
+  },
+  "technical_criteria": {
+    "seo_optimization": {
+      "weight": 0.30,
+      "keyword_density": [0.01, 0.03]
+    },
+    "structure": {
+      "weight": 0.35,
+      "headers_required": true,
+      "bullet_points_allowed": true
+    },
+    "citations": {
+      "weight": 0.35,
+      "min_sources": 1,
+      "inline_citations": true
+    }
+  },
+  "minimum_acceptable_score": 75,
+  "excellence_threshold": 85
+}

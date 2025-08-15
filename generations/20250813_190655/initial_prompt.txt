@@ -1,0 +1,2 @@
+Topic: AI Systems as Maps: How semantic layers are replacing workflow-centric architectures in enterprise software
+Title: AI Systems as Maps (not Systems of Record)

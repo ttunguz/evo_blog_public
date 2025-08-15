@@ -1,0 +1,54 @@
+[
+  {
+    "model": "claude",
+    "strategy": "technical",
+    "score": 86.3,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "Too short (260 words, minimum: 400) | No data or statistics found",
+      "cliches": "Found clich\u00e9s: robust",
+      "brevity": "Word count: 260 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent prose clarity, strong conceptual framework contrasting ETL vs AI automation, compelling central thesis about trust evolution, sophisticated vocabulary and sentence variety, logical progression from technical to strategic concerns | Weaknesses: Abrupt ending suggests incomplete conclusion, could benefit from concrete company examples or case studies, final paragraph introduces new concept without full development"
+    }
+  },
+  {
+    "model": "gpt4",
+    "strategy": "technical",
+    "score": 86.0565,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "Slightly long (501 words, ideal: 500) | 1 paragraphs too long (>4 sentences) | Too many colons (3, max: 2) | No data or statistics found",
+      "cliches": "Found clich\u00e9s: seamlessly",
+      "brevity": "Word count: 501 (target: 500)",
+      "ap_evaluation": "Strengths: Sophisticated vocabulary and sentence structure, clear progression from historical context to current challenges, strong opening that establishes the central thesis, effective use of specific examples and tools | Weaknesses: The post appears incomplete (cuts off mid-sentence), some transitions could be smoother, the argument about trust could use more concrete evidence or case studies, lacks a strong concluding synthesis"
+    }
+  },
+  {
+    "model": "gpt4",
+    "strategy": "business",
+    "score": 85.5565,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "Slightly long (501 words, ideal: 500) | 6 paragraphs too long (>4 sentences) | No data or statistics found",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 501 (target: 500)",
+      "ap_evaluation": "Strengths: Clear writing with strong sentence structure, logical progression from ETL to AI automation, good use of concrete examples like Shopify, effective contrast between deterministic and AI-driven systems | Weaknesses: Abrupt ending suggests incomplete post, some claims lack specific evidence (McKinsey report mentioned but not fully utilized), could benefit from more detailed exploration of trust-building mechanisms"
+    }
+  },
+  {
+    "model": "claude",
+    "strategy": "business",
+    "score": 84.875,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "Too short (346 words, minimum: 400) | Too many colons (3, max: 2) | No data or statistics found",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 346 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent prose clarity, strong opening hook, well-structured paragraphs with smooth transitions, compelling central metaphor of 'plumbing to trust problem' | Weaknesses: Argument feels incomplete due to abrupt ending, lacks concrete evidence (author acknowledges missing data), limited specific examples or case studies, some assertions need stronger support"
+    }
+  }
+]

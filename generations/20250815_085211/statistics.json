@@ -1,0 +1,16 @@
+{
+  "best_score": 90.3,
+  "best_grade": "A-",
+  "best_model": "claude",
+  "best_strategy": "business",
+  "total_generated": 5,
+  "total_cost": 0.124765,
+  "ready_posts": 3,
+  "all_scores": [
+    90.3,
+    88.55,
+    88.5,
+    84.5,
+    83.9375
+  ]
+}

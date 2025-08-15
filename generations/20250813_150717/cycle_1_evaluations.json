@@ -1,0 +1,74 @@
+[
+  {
+    "model": "claude",
+    "strategy": "business",
+    "score": 93.69999999999999,
+    "grade": "A",
+    "ready": true,
+    "feedback": {
+      "style": "1 paragraphs too long (>4 sentences)",
+      "cliches": "Found clich\u00e9s: breakthrough",
+      "ap_evaluation": "Strengths: Well-structured argument, concrete data points, relevant industry examples, clear technical explanations, effective use of expert sources | Weaknesses: Could provide more specific solutions or future outlook, final paragraph feels incomplete"
+    }
+  },
+  {
+    "model": "claude",
+    "strategy": "technical",
+    "score": 93.19999999999999,
+    "grade": "A",
+    "ready": true,
+    "feedback": {
+      "style": "Too many colons (3, max: 2)",
+      "cliches": "Found clich\u00e9s: breakthrough",
+      "ap_evaluation": "Strengths: Well-structured argument, specific data points, clear technical explanations, effective use of real-world examples (Stripe, Databricks), strong opening hook with GPT-5 comparison | Weaknesses: Abrupt ending, could use more transition between Databricks and Snowflake paragraphs, final paragraph appears incomplete"
+    }
+  },
+  {
+    "model": "gpt4",
+    "strategy": "technical",
+    "score": 90.69999999999999,
+    "grade": "A-",
+    "ready": true,
+    "feedback": {
+      "style": "Too many colons (5, max: 2)",
+      "cliches": "Found clich\u00e9s: transformative",
+      "ap_evaluation": "Strengths: Sophisticated sentence structure, clear technical explanations, strong evidence with SPIDER benchmark data, effective use of contrast, logical flow between paragraphs | Weaknesses: Incomplete final sentence, could provide more specific examples of business context challenges"
+    }
+  },
+  {
+    "model": "gemini",
+    "strategy": "technical",
+    "score": 90.3,
+    "grade": "A-",
+    "ready": true,
+    "feedback": {
+      "style": "3 paragraphs too long (>4 sentences) | Too many colons (3, max: 2)",
+      "cliches": "No clich\u00e9s detected",
+      "ap_evaluation": "Strengths: Strong technical accuracy, clear progression of ideas, effective use of concrete examples (Stripe, SPIDER), good data references, compelling opening hook | Weaknesses: Incomplete conclusion, one minor typo ('tacklin'), could use more transition sentences between paragraphs"
+    }
+  },
+  {
+    "model": "gpt4",
+    "strategy": "business",
+    "score": 90.05,
+    "grade": "A-",
+    "ready": true,
+    "feedback": {
+      "style": "1 paragraphs too long (>4 sentences)",
+      "cliches": "Found clich\u00e9s: leverage, breakthrough",
+      "ap_evaluation": "Strengths: Strong technical accuracy, clear progression of ideas, effective use of specific examples and data, professional tone, well-structured paragraphs | Weaknesses: Incomplete conclusion, could use more concrete solutions or future outlook, e-commerce example could be more detailed"
+    }
+  },
+  {
+    "model": "gemini",
+    "strategy": "business",
+    "score": 89.55,
+    "grade": "B+",
+    "ready": true,
+    "feedback": {
+      "style": "4 paragraphs too long (>4 sentences) | Too many colons (3, max: 2)",
+      "cliches": "No clich\u00e9s detected",
+      "ap_evaluation": "Strengths: Strong opening hook, clear technical explanations, relevant business examples, logical flow, effective use of specific metrics and benchmarks | Weaknesses: Incomplete final sentence, could use more concrete solutions or future predictions, some paragraphs could be more concise"
+    }
+  }
+]

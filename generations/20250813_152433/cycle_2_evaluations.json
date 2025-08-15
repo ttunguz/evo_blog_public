@@ -1,0 +1,38 @@
+[
+  {
+    "model": "claude",
+    "strategy": "refined",
+    "score": 89.9875,
+    "grade": "B+",
+    "ready": true,
+    "feedback": {
+      "style": "Too short (399 words, target: 400-800) | Too many colons (3, max: 2)",
+      "cliches": "Found clich\u00e9s: transformative",
+      "ap_evaluation": "Strengths: Clear structure, professional tone, strong opening hook, effective use of examples (Anthropic, Buffer), logical flow between paragraphs | Weaknesses: Missing promised data metrics, incomplete conclusion, needs more specific technical details about implementation"
+    }
+  },
+  {
+    "model": "gpt4",
+    "strategy": "refined",
+    "score": 87.8,
+    "grade": "B+",
+    "ready": true,
+    "feedback": {
+      "style": "No data or statistics found",
+      "cliches": "Found clich\u00e9s: game-changer, revolutionary",
+      "ap_evaluation": "Strengths: Excellent grammar and structure, compelling technological concept, clear explanation of benefits, professional tone, strong opening hook | Weaknesses: Missing concrete data points for startup example, incomplete conclusion, could use more specific technical details about implementation"
+    }
+  },
+  {
+    "model": "gemini",
+    "strategy": "refined",
+    "score": 82.75,
+    "grade": "B-",
+    "ready": false,
+    "feedback": {
+      "style": "3 paragraphs too long (>4 sentences) | No data or statistics found | Opening sentence too weak/short",
+      "cliches": "Found clich\u00e9s: leverage",
+      "ap_evaluation": "Strengths: Strong opening hook, clear technical explanations, effective use of analogies, professional tone, well-structured paragraphs | Weaknesses: Missing concrete data point as noted in brackets, incomplete conclusion, could use more specific examples of implementation success"
+    }
+  }
+]

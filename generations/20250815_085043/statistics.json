@@ -1,0 +1,15 @@
+{
+  "best_score": 87.25,
+  "best_grade": "B+",
+  "best_model": "claude",
+  "best_strategy": "technical",
+  "total_generated": 4,
+  "total_cost": 0.10986299999999999,
+  "ready_posts": 2,
+  "all_scores": [
+    87.25,
+    87.0,
+    86.8625,
+    83.30000000000001
+  ]
+}

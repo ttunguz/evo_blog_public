@@ -1,0 +1,54 @@
+[
+  {
+    "model": "claude",
+    "strategy": "business",
+    "score": 89.275,
+    "grade": "B+",
+    "ready": true,
+    "feedback": {
+      "style": "Too short (378 words, minimum: 400) | No data or statistics found",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 378 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent clarity and sentence structure, compelling central thesis about trust evolution, strong concrete examples (GitHub Copilot, Zapier), clear progression from traditional to modern automation challenges | Weaknesses: Abrupt ending suggests incomplete post, could benefit from stronger concluding synthesis, some claims about trust-building lack deeper evidence beyond examples"
+    }
+  },
+  {
+    "model": "gpt4",
+    "strategy": "business",
+    "score": 88.11299999999999,
+    "grade": "B+",
+    "ready": true,
+    "feedback": {
+      "style": "Slightly long (502 words, ideal: 500) | 1 paragraphs too long (>4 sentences) | Too many colons (5, max: 2) | No data or statistics found",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 502 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent prose clarity, strong logical progression from historical context to current challenges, compelling thesis about trust vs efficiency, effective use of concrete examples like Zapier, sophisticated vocabulary and sentence variety | Weaknesses: Argument feels incomplete due to truncation, could benefit from more specific evidence/data points, the transition between paragraphs 4-5 could be smoother, lacks a strong concluding synthesis"
+    }
+  },
+  {
+    "model": "claude",
+    "strategy": "technical",
+    "score": 84.86250000000001,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "Too short (353 words, minimum: 400) | No data or statistics found",
+      "cliches": "Found clich\u00e9s: robust",
+      "brevity": "Word count: 353 (target: 500)",
+      "ap_evaluation": "Strengths: Clear, professional writing with strong technical vocabulary. Well-structured progression from traditional ETL to modern AI workflows. Good use of concrete examples and practical insights about trust-building through iteration. | Weaknesses: Incomplete conclusion weakens the overall argument. Missing promised data citation creates credibility gap. Some claims about 'most successful implementations' lack supporting evidence. The trust-building argument could be more fully developed."
+    }
+  },
+  {
+    "model": "gpt4",
+    "strategy": "technical",
+    "score": 81.778,
+    "grade": "B-",
+    "ready": false,
+    "feedback": {
+      "style": "Slightly long (512 words, ideal: 500) | 4 paragraphs too long (>4 sentences) | Too many colons (5, max: 2) | No data or statistics found",
+      "cliches": "Found clich\u00e9s: robust",
+      "brevity": "Word count: 512 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent opening hook, clear thesis progression from ETL to AI trust, strong technical vocabulary, compelling real-world example with GitHub Copilot, sophisticated sentence variety | Weaknesses: Incomplete conclusion due to truncation, missing specific data point as noted by author, some transitions could be smoother between technical concepts and trust implications"
+    }
+  }
+]

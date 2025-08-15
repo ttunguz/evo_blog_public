@@ -1,0 +1,54 @@
+[
+  {
+    "model": "gpt4",
+    "strategy": "technical",
+    "score": 87.7,
+    "grade": "B+",
+    "ready": true,
+    "feedback": {
+      "style": "No data or statistics found",
+      "cliches": "Found clich\u00e9s: next generation",
+      "brevity": "Word count: 471 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent opening hook, clear thesis, strong use of specific examples and data sources, sophisticated vocabulary and sentence variety, compelling real-world applications | Weaknesses: Incomplete ending undermines conclusion, missing specific data where noted, could benefit from addressing potential counterarguments or limitations of AI in procurement"
+    }
+  },
+  {
+    "model": "claude",
+    "strategy": "technical",
+    "score": 86.1,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "Too many colons (3, max: 2) | No data or statistics found",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 430 (target: 500)",
+      "ap_evaluation": "Strengths: Clear, professional writing with strong sentence structure. Well-organized three-phase framework. Good use of specific examples and practical applications. | Weaknesses: Lacks concrete evidence and statistics (author acknowledges this). Argument relies heavily on assertions without supporting data. Abrupt ending suggests incomplete development. Claims need more substantiation."
+    }
+  },
+  {
+    "model": "gpt4",
+    "strategy": "business",
+    "score": 86.0,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "2 paragraphs too long (>4 sentences) | Too many colons (4, max: 2) | No data or statistics found",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 455 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent opening hook, clear thesis, strong concrete examples with specific company names, good use of authoritative sources like Gartner, well-structured progression through procurement stages | Weaknesses: Incomplete post with visible [NEEDS DATA] placeholders, lacks conclusion, some claims need stronger quantitative evidence, could benefit from addressing potential counterarguments or limitations of AI solutions"
+    }
+  },
+  {
+    "model": "claude",
+    "strategy": "business",
+    "score": 83.6,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "No data or statistics found | Opening sentence too weak/short",
+      "cliches": "Found clich\u00e9s: robust",
+      "brevity": "Word count: 429 (target: 500)",
+      "ap_evaluation": "Strengths: Clear, concise writing with strong opening thesis. Good use of specific three-stage breakdown and practical examples. Professional tone appropriate for business audience. | Weaknesses: Incomplete ending suggests rushed writing. Lacks concrete data/statistics (author acknowledges this gap). Claims about 'early adopters' and 'substantial improvements' need supporting evidence. Argument relies heavily on logical assumptions rather than proven results."
+    }
+  }
+]

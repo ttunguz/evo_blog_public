@@ -1,0 +1,24 @@
+# AI Model APIs
+anthropic>=0.18.0
+openai>=1.0.0
+google-generativeai>=0.3.0
+
+# Text Processing
+beautifulsoup4>=4.12.0
+markdown>=3.4.0
+textstat>=0.7.3
+nltk>=3.8.0
+
+# Analysis
+scikit-learn>=1.3.0
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Utilities
+python-dotenv>=1.0.0
+rich>=13.0.0
+click>=8.1.0
+pyyaml>=6.0
+
+# Local Model Support
+ollama>=0.1.0

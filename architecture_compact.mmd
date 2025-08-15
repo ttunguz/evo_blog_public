@@ -1,0 +1,23 @@
+flowchart TD
+    A[User Prompt] --> B[Prompt Engine]
+    B --> C1[Claude Sonnet 4]
+    B --> C2[GPT-4.1] 
+    B --> C3[Gemini 2.5 Pro]
+    
+    C1 --> D[Evaluator<br/>AP English Grading]
+    C2 --> D
+    C3 --> D
+    
+    D --> E{Score ≥ B+?}
+    E -->|No| F[Refinement Cycle]
+    F --> B
+    E -->|Yes| G[Data Verifier]
+    G --> H[Fact Check Report]
+    G --> I[Published Blog Post]
+    
+    style A fill:#e1f5fe
+    style I fill:#c8e6c9
+    style C1 fill:#fff3e0
+    style C2 fill:#fff3e0
+    style C3 fill:#fff3e0
+    style D fill:#ffe0b2

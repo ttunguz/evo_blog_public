@@ -1,0 +1,19 @@
+{
+  "best_score": 91.8,
+  "best_grade": "A-",
+  "best_model": "claude",
+  "best_strategy": "refined",
+  "total_generated": 8,
+  "total_cost": 0.177249,
+  "ready_posts": 3,
+  "all_scores": [
+    91.8,
+    89.3125,
+    88.38749999999999,
+    86.80000000000001,
+    86.2,
+    85.6,
+    85.3,
+    82.4
+  ]
+}

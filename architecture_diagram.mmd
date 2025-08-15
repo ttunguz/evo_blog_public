@@ -1,0 +1,62 @@
+graph LR
+    subgraph "Input Layer"
+        U[User Prompt] --> PB[Prompt Builder]
+        PB --> |"Style Guide + Data Rules"| PE[Prompt Engine]
+    end
+
+    subgraph "Generation Layer - Parallel Execution"
+        PE --> C1[Claude Sonnet 4]
+        PE --> G1[GPT-4.1]
+        PE --> GM1[Gemini 2.5 Pro]
+        
+        C1 --> |"2-3 variations"| CV[Claude Variations]
+        G1 --> |"2-3 variations"| GV[GPT-4.1 Variations]
+        GM1 --> |"2-3 variations"| GMV[Gemini Variations]
+    end
+
+    subgraph "Evaluation Layer"
+        CV --> EV[Evaluator]
+        GV --> EV
+        GMV --> EV
+        
+        EV --> |"AP English Grading"| GR[Grammar Score]
+        EV --> |"Argument Analysis"| AR[Argument Score]
+        EV --> |"Style Matching"| SM[Style Score]
+        EV --> |"Cliché Detection"| CD[Cliché Score]
+        
+        GR --> OS[Overall Score]
+        AR --> OS
+        SM --> OS
+        CD --> OS
+    end
+
+    subgraph "Refinement Cycle"
+        OS --> |"Top 3 Posts"| RC[Refinement Prompt]
+        RC --> |"Cycle 2"| PE2[Generation Round 2]
+        PE2 --> REF[Refined Variations]
+        REF --> EV2[Re-evaluation]
+        EV2 --> |"B+ or Better"| READY{Ready to Ship?}
+    end
+
+    subgraph "Verification Layer"
+        READY -->|Yes| DV[Data Verifier]
+        DV --> |"Check Claims"| FC[Fact Checker]
+        FC --> |"Flag Issues"| FR[Fact Report]
+        DV --> |"Enhanced Post"| FINAL[Final Blog Post]
+    end
+
+    subgraph "Output"
+        FINAL --> H48[H48 Blog]
+        FR --> LOG[Verification Log]
+    end
+
+    READY -->|No| RC
+
+    style U fill:#e1f5fe
+    style FINAL fill:#c8e6c9
+    style H48 fill:#81c784
+    style C1 fill:#fff3e0
+    style G1 fill:#fff3e0
+    style GM1 fill:#fff3e0
+    style EV fill:#ffe0b2
+    style DV fill:#ffccbc

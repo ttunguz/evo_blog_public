@@ -1,0 +1,41 @@
+[
+  {
+    "model": "gpt4",
+    "strategy": "refined",
+    "score": 90.0,
+    "grade": "A-",
+    "ready": true,
+    "feedback": {
+      "style": "3 paragraphs too long (>4 sentences) | Too many colons (5, max: 2)",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 410 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent sentence variety and clarity, compelling central thesis about trust evolution, strong concrete examples (Informatica, GitHub Copilot, Zapier), effective use of statistical evidence from McKinsey survey, clear progression from deterministic to probabilistic automation | Weaknesses: Abrupt ending suggests incomplete argument, could benefit from stronger conclusion that synthesizes the trust-building strategies, some transitions between paragraphs could be smoother"
+    }
+  },
+  {
+    "model": "claude",
+    "strategy": "refined",
+    "score": 87.9875,
+    "grade": "B+",
+    "ready": true,
+    "feedback": {
+      "style": "Too short (275 words, minimum: 400) | No data or statistics found",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 275 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent sentence variety and clarity, compelling central thesis about trust paradox, strong concrete examples (Zapier, GitHub Copilot), logical progression from traditional to modern automation | Weaknesses: Abrupt ending suggests incomplete conclusion, could benefit from addressing potential counterarguments, some claims lack specific supporting data"
+    }
+  },
+  {
+    "model": "gemini",
+    "strategy": "refined",
+    "score": 83.3875,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "Too short (43 words, minimum: 400) | No data or statistics found",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 43 (target: 500)",
+      "ap_evaluation": "Strengths: Clear progression from technical to conceptual analysis, strong opening hook, effective use of concrete examples (ETL vs AI), insightful identification of trust as the new bottleneck | Weaknesses: Abrupt ending suggests incomplete development, could benefit from more specific evidence or case studies, transition between technical and trust concepts could be smoother"
+    }
+  }
+]

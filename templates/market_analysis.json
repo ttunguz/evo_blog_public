@@ -1,0 +1,51 @@
+{
+  "template_name": "Market Analysis",
+  "description": "For posts analyzing market trends and opportunities",
+  "structure": {
+    "opening": {
+      "style": "market_observation",
+      "length": "40-60 words",
+      "include_statistic": true
+    },
+    "sections": [
+      {
+        "type": "market_size",
+        "title": "Market Dynamics",
+        "paragraphs": 2,
+        "require_tam_sam": true
+      },
+      {
+        "type": "competitive_landscape",
+        "title": "Competitive Analysis",
+        "paragraphs": 3
+      },
+      {
+        "type": "trends",
+        "title": "Emerging Patterns",
+        "paragraphs": 2,
+        "include_data": true
+      },
+      {
+        "type": "opportunities",
+        "title": "Investment Thesis",
+        "paragraphs": 2
+      }
+    ],
+    "conclusion": {
+      "style": "forward_looking",
+      "include_prediction": true,
+      "length": "50-70 words"
+    }
+  },
+  "tone": "analytical_optimistic",
+  "data_requirements": {
+    "minimum_statistics": 4,
+    "include_growth_rates": true,
+    "include_market_size": true
+  },
+  "example_topics": [
+    "SaaS market evolution",
+    "AI startup landscape",
+    "Developer tools ecosystem"
+  ]
+}

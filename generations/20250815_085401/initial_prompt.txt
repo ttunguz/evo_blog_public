@@ -1,0 +1,2 @@
+Topic: Write a blog post about how automation has evolved from being about data movement to now being about workflow diagramming and iterating on AI processes until people trust them. Discuss the shift from ETL pipelines to AI agent workflows and the importance of building trust through iteration.
+Title: From ETL to AI: The Evolution of Automation Trust

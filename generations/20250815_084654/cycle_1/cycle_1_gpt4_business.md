@@ -1,0 +1,17 @@
+For years, automation meant moving data from one place to another.
+
+Now, the stakes have changed: Is automation still just about efficiency, or is it about building trust in AI-powered workflows?
+
+Historically, enterprise automation revolved around ETL pipelines—extracting, transforming, and loading data across systems. IT teams would script recurring processes, ensuring reports landed in dashboards each morning. The measure of success was clear: minimal manual intervention and fewer errors. The boundaries between automation and integration were thin, and the goal was always reliability.
+
+But as companies began to adopt more intelligent tools, the needs shifted. Data movement alone no longer solved the hardest problems, especially when teams wanted to automate business decisions, not just their data. The rise of AI agents—software that not only moves information but also takes action—exposes a new gap: how to trust the decisions these systems make, especially when their logic is less transparent than a SQL script.
+
+Founders and VCs now face a different landscape. Instead of asking how fast data moves, they’re asking how much trust teams can place in AI-driven workflows that suggest actions, compose emails, or approve transactions. The core problem emerges: How do you build enough confidence in these agents so that real work can shift from people to machines?
+
+The answer lies in shifting from code-heavy automation to visual, iterative workflow diagramming. Platforms like Zapier, Retool, and emerging AI agent frameworks prioritize clarity and iteration over raw speed. Instead of black-box processes, users draw out workflows, tweak steps, and see exactly what happens at each stage. This approach mirrors the evolution of software development from compiled binaries to interpreted code—transparency and adjustability drive adoption.
+
+For example, Zapier’s “playbooks” let teams see not just what connects, but why each step exists, and how it can be changed as needs evolve. [NEEDS DATA: Usage growth or satisfaction rates for visual workflow tools]. In the AI realm, OpenAI’s GPT-4 and similar models have pushed companies to embed human-in-the-loop steps—reviewing, editing, or approving AI outputs—before full automation. This iterative feedback loop is critical. According to a 2023 McKinsey report, more than half of enterprises cited “lack of trust in AI decision-making” as a barrier to widespread deployment. By diagramming and testing processes, teams can expose failure points and gradually remove human checkpoints as confidence increases.
+
+The result is a fundamentally different approach from the past. Automation is no longer just about data velocity or task elimination. It’s about building a living workflow that can evolve as the business changes and as trust in AI grows. Companies that embrace this model will outpace those stuck on static ETL scripts, because they can adapt faster to new requirements and edge cases.
+
+Where ETL pipelines once ruled, iterative workflow diagramming and AI process refinement now offer a path forward. Trust isn’t given—it’s earned through repeated, visible improvement. For founders and investors, the opportunity lies in tools that make this iterative trust-building seamless, transparent, and actionable. The future of automation belongs to those who design for trust, not just efficiency.

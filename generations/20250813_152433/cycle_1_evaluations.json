@@ -1,0 +1,74 @@
+[
+  {
+    "model": "gemini",
+    "strategy": "technical",
+    "score": 92.3,
+    "grade": "A-",
+    "ready": true,
+    "feedback": {
+      "style": "Style matches well",
+      "cliches": "Found clich\u00e9s: leverage",
+      "ap_evaluation": "Strengths: Clear technical explanation, logical flow, effective use of analogies, strong opening hook, well-structured paragraphs | Weaknesses: Incomplete conclusion, missing data point noted in brackets, could use more specific metrics on success rates"
+    }
+  },
+  {
+    "model": "gpt4",
+    "strategy": "technical",
+    "score": 90.8,
+    "grade": "A-",
+    "ready": true,
+    "feedback": {
+      "style": "1 paragraphs too long (>4 sentences)",
+      "cliches": "Found clich\u00e9s: leverage, groundbreaking",
+      "ap_evaluation": "Strengths: Excellent sentence structure, clear technical explanation, sophisticated vocabulary, logical flow between paragraphs | Weaknesses: Appears incomplete (ends mid-thought), could use more specific examples of system implementation"
+    }
+  },
+  {
+    "model": "gemini",
+    "strategy": "business",
+    "score": 87.8,
+    "grade": "B+",
+    "ready": true,
+    "feedback": {
+      "style": "1 paragraphs too long (>4 sentences) | No data or statistics found",
+      "cliches": "Found clich\u00e9s: leverage",
+      "ap_evaluation": "Strengths: Clear technical explanation, logical flow, strong opening hook, effective use of analogies, professional tone | Weaknesses: Missing concrete data point (noted in text), could use more specific examples of implementation success, conclusion appears truncated"
+    }
+  },
+  {
+    "model": "gpt4",
+    "strategy": "business",
+    "score": 86.3,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "2 paragraphs too long (>4 sentences) | No data or statistics found",
+      "cliches": "Found clich\u00e9s: leverage, revolutionary",
+      "ap_evaluation": "Strengths: Sophisticated sentence structure, clear technical explanation, logical flow, strong opening thesis | Weaknesses: Abrupt ending, could use more specific examples of implementation results, trade-offs section needs expansion"
+    }
+  },
+  {
+    "model": "claude",
+    "strategy": "technical",
+    "score": 84.75,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "Too many colons (3, max: 2) | No data or statistics found",
+      "cliches": "Found clich\u00e9s: leverage, robust",
+      "ap_evaluation": "Strengths: Clear technical explanation, logical flow, strong opening thesis, effective use of parallel structure | Weaknesses: Missing data point noted in brackets, incomplete conclusion, could use more specific performance metrics"
+    }
+  },
+  {
+    "model": "claude",
+    "strategy": "business",
+    "score": 83.75,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "Too many colons (5, max: 2) | No data or statistics found",
+      "cliches": "Found clich\u00e9s: leverage",
+      "ap_evaluation": "Strengths: Professional tone, clear structure, strong technical explanation, logical flow | Weaknesses: Missing data points noted in brackets, incomplete conclusion, could use more specific examples"
+    }
+  }
+]

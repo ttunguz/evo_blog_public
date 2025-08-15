@@ -1,0 +1,17 @@
+Automation began as the simple migration of data from one place to another.
+
+Yet today, the meaning of automation has shifted, and with it, the challenge: How do we build processes that people trust enough to let them run on their own?
+
+For decades, automation meant ETL pipelines. Businesses extracted data from databases, transformed it into a usable format, and loaded it into another system. This was the backbone of the modern data stack. ETL pipelines scaled, but their purpose was narrow—they moved data, they did not make decisions. Engineers created reliable flows, and organizations trusted these pipelines because every step was transparent and deterministic.
+
+That stable world has faded. Today, companies want automation that can reason, not just move data. AI agents now orchestrate complex workflows, making decisions in real time—decisions once reserved for humans. The surface area for automation has expanded, but so has the need for trust. If a data pipeline makes a mistake, you can trace the error. When an AI agent makes a decision, the logic may not be as clear.
+
+This shift raises a new challenge. How do we iterate on AI-driven automation until people are willing to rely on it for critical work? The answer lies in designing automation as a workflow, not just a pipeline. Modern tools like Zapier and Microsoft Power Automate have introduced visual diagramming, making workflows understandable at a glance. But with AI agents, the opacity of deep learning models complicates the story. According to a McKinsey report, while automation adoption is broad, only a small subset of organizations trust AI systems with end-to-end workflows without human oversight. Transparency, feedback loops, and iteration become the foundation of trust.
+
+The most successful companies approach AI automation like software development. They start with simple, constrained workflows and test them in production. For example, Shopify uses AI to automate customer support triage, but outputs are reviewed and corrected by humans before being fully automated. This iterative cycle—build, deploy, monitor, refine—mirrors the feedback-driven culture of agile development. With every iteration, the workflow becomes more reliable, and trust grows. [NEEDS DATA: statistic on the reduction in support ticket resolution time after automation iteration]
+
+Diagramming workflows is critical. Visual tools help teams understand where AI operates, where humans intervene, and how information flows. This clarity reduces the risk of unexpected outcomes. As teams iterate, they capture exceptions and edge cases, feeding them back into the workflow. Over time, the automation improves, handling more scenarios with confidence.
+
+What does this mean for founders and investors? Start simple. Diagram every workflow before deploying automation, especially when AI is involved. Measure outcomes, involve humans in the loop, and iterate. Each cycle brings the organization closer to the point where people will trust automation with complex decisions.
+
+Automation has moved beyond data movement. It now demands a cycle of workflow diagramming, transparent iteration, and trust-building. The organizations willing to embrace this new model will unlock a new level of productivity, while those clinging to the old approach will fall behind.

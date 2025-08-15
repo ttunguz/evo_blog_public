@@ -1,0 +1,28 @@
+[
+  {
+    "model": "claude",
+    "strategy": "refined",
+    "score": 90.6,
+    "grade": "A-",
+    "ready": true,
+    "feedback": {
+      "style": "2 paragraphs too long (>4 sentences) | No data or statistics found",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 412 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent prose style with varied sentence structure, compelling central metaphor, strong concrete examples (Microsoft Copilot, Notion AI), clear logical progression from problem to solution to enabling factors | Weaknesses: Abrupt ending suggests incomplete post, could benefit from addressing potential counterarguments or implementation challenges, some technical terms could use brief explanation for broader audience"
+    }
+  },
+  {
+    "model": "gpt4",
+    "strategy": "refined",
+    "score": 89.0,
+    "grade": "B+",
+    "ready": true,
+    "feedback": {
+      "style": "2 paragraphs too long (>4 sentences) | Too many colons (4, max: 2)",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 427 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent metaphorical framework (highways vs. city grid), strong opening hook, clear thesis development, good use of concrete examples like Microsoft 365 Copilot and Salesforce Einstein GPT, sophisticated vocabulary and varied sentence structure | Weaknesses: Incomplete ending undermines conclusion, acknowledged data gap weakens credibility, some metaphor mixing (roads/terrain distinction could be clearer), lacks specific ROI examples or case studies to strengthen the $4.4 trillion claim"
+    }
+  }
+]

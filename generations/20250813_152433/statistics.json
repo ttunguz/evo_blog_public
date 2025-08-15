@@ -1,0 +1,20 @@
+{
+  "best_score": 92.3,
+  "best_grade": "A-",
+  "best_model": "gemini",
+  "best_strategy": "technical",
+  "total_generated": 9,
+  "total_cost": 0.11321500000000001,
+  "ready_posts": 5,
+  "all_scores": [
+    92.3,
+    90.8,
+    89.9875,
+    87.8,
+    87.8,
+    86.3,
+    84.75,
+    83.75,
+    82.75
+  ]
+}

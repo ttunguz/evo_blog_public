@@ -1,0 +1,2 @@
+Topic: How an evolutionary multi-model blog post generation system works, using parallel AI models (Claude, GPT-4, Gemini) to generate variations, AP English teacher evaluation for quality scoring, and iterative refinement cycles. Explain the architecture, benefits of parallel generation, evaluation criteria, and trade-offs between cost, quality, and time. Include specific examples from our implementation showing 90%+ success rates and sub-3-minute generation times.
+Title: Building an Evolutionary AI Blog Post Generator

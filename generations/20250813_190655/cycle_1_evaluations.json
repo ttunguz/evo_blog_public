@@ -1,0 +1,67 @@
+[
+  {
+    "model": "gpt4",
+    "strategy": "business",
+    "score": 91.2,
+    "grade": "A-",
+    "ready": true,
+    "feedback": {
+      "style": "1 paragraphs too long (>4 sentences) | Too many colons (5, max: 2)",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 462 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent prose quality with sophisticated vocabulary and varied sentence structure. Clear central thesis with strong concrete examples (Microsoft 365 Copilot, Salesforce Einstein). Compelling quantitative evidence from McKinsey study. Good use of contrast between traditional and semantic approaches. | Weaknesses: Argument could benefit from addressing potential counterarguments or implementation challenges. The startup/VC paragraph appears incomplete. Some technical concepts could use clearer explanation for broader audience."
+    }
+  },
+  {
+    "model": "claude",
+    "strategy": "business",
+    "score": 89.2,
+    "grade": "B+",
+    "ready": true,
+    "feedback": {
+      "style": "No data or statistics found",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 422 (target: 500)",
+      "ap_evaluation": "Strengths: Strong opening hook, clear metaphors (highways vs cities, maps vs routes), excellent concrete example with Snowflake, sophisticated vocabulary and sentence variety | Weaknesses: Incomplete ending suggests truncation, missing promised data/statistics, some technical jargon may alienate general readers, argument could benefit from counterarguments or limitations"
+    }
+  },
+  {
+    "model": "claude",
+    "strategy": "technical",
+    "score": 88.2,
+    "grade": "B+",
+    "ready": true,
+    "feedback": {
+      "style": "Too many colons (3, max: 2) | No data or statistics found",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 442 (target: 500)",
+      "ap_evaluation": "Strengths: Clear, engaging prose with strong metaphorical framework. Good use of concrete examples like Notion. Technical concepts explained accessibly. Strong opening that establishes the shift clearly. | Weaknesses: Incomplete post cuts off mid-sentence. Missing promised data citation weakens credibility. Some claims lack supporting evidence. Argument could benefit from addressing potential counterarguments or limitations of semantic systems."
+    }
+  },
+  {
+    "model": "gemini",
+    "strategy": "business",
+    "score": 85.5625,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "Too short (81 words, minimum: 400) | No data or statistics found",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 81 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent metaphorical framework (railroad vs. map), clear prose, strong technical understanding, compelling vision of architectural shift, good use of concrete examples | Weaknesses: Abrupt ending suggests incomplete post, could benefit from addressing potential counterarguments or implementation challenges, some technical concepts could use more explanation for broader audience"
+    }
+  },
+  {
+    "model": "gpt4",
+    "strategy": "technical",
+    "score": 83.9,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "4 paragraphs too long (>4 sentences) | Too many colons (4, max: 2) | Opening sentence too weak/short",
+      "cliches": "Found clich\u00e9s: robust",
+      "brevity": "Word count: 447 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent prose quality with sophisticated vocabulary and varied sentence structure. Clear central thesis about the shift from workflow-centric to semantic layer architectures. Strong concrete examples (Microsoft Copilot, Glean) that illustrate abstract concepts effectively. | Weaknesses: Argument relies heavily on assertions without sufficient supporting evidence - author explicitly notes missing data points. The McKinsey statistic feels tangential rather than directly supporting the semantic layer solution. Lacks discussion of potential drawbacks or implementation challenges, weakening overall persuasiveness."
+    }
+  }
+]

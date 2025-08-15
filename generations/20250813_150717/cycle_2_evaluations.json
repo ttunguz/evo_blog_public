@@ -1,0 +1,38 @@
+[
+  {
+    "model": "claude",
+    "strategy": "refined",
+    "score": 94.65,
+    "grade": "A",
+    "ready": true,
+    "feedback": {
+      "style": "Too many colons (3, max: 2)",
+      "cliches": "No clich\u00e9s detected",
+      "ap_evaluation": "Strengths: Strong technical evidence, clear real-world examples, logical flow, effective use of specific data points and company cases, professional tone | Weaknesses: Appears to end abruptly (though truncated), could use more transition between paragraphs"
+    }
+  },
+  {
+    "model": "gemini",
+    "strategy": "refined",
+    "score": 91.8,
+    "grade": "A-",
+    "ready": true,
+    "feedback": {
+      "style": "1 paragraphs too long (>4 sentences) | Too many colons (3, max: 2)",
+      "cliches": "No clich\u00e9s detected",
+      "ap_evaluation": "Strengths: Strong opening hook, concrete examples, effective use of data points, clear technical explanations, engaging analogies (self-driving car) | Weaknesses: Some incomplete thoughts (truncated ending), occasional overuse of ellipses, could tighten transitions between examples"
+    }
+  },
+  {
+    "model": "gpt4",
+    "strategy": "refined",
+    "score": 90.44999999999999,
+    "grade": "A-",
+    "ready": true,
+    "feedback": {
+      "style": "2 paragraphs too long (>4 sentences) | Too many colons (4, max: 2)",
+      "cliches": "Found clich\u00e9s: leverage",
+      "ap_evaluation": "Strengths: Excellent technical accuracy, compelling real-world examples, clear progression of ideas, strong opening hook, effective use of statistics and company examples | Weaknesses: Final paragraph appears truncated, could use more transition between Snowflake example and subsequent points"
+    }
+  }
+]

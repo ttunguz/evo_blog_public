@@ -1,0 +1,17 @@
+{
+  "best_score": 87.7,
+  "best_grade": "B+",
+  "best_model": "gpt4",
+  "best_strategy": "technical",
+  "total_generated": 6,
+  "total_cost": 0.171948,
+  "ready_posts": 1,
+  "all_scores": [
+    87.7,
+    86.2,
+    86.1,
+    86.0,
+    83.6,
+    83.5
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "template_name": "Technical Deep Dive",
+  "description": "For posts that explore technical concepts in detail",
+  "structure": {
+    "opening": {
+      "style": "problem_statement",
+      "length": "50-75 words",
+      "include_statistic": true
+    },
+    "sections": [
+      {
+        "type": "context",
+        "title": "The Current State",
+        "paragraphs": 2
+      },
+      {
+        "type": "analysis",
+        "title": "Technical Analysis",
+        "paragraphs": 3,
+        "include_data": true
+      },
+      {
+        "type": "implications",
+        "title": "What This Means",
+        "paragraphs": 2
+      },
+      {
+        "type": "future",
+        "title": "Looking Forward",
+        "paragraphs": 2
+      }
+    ],
+    "conclusion": {
+      "style": "action_oriented",
+      "include_cta": true,
+      "length": "40-60 words"
+    }
+  },
+  "tone": "analytical",
+  "data_requirements": {
+    "minimum_statistics": 3,
+    "include_chart": true
+  },
+  "example_topics": [
+    "Database architecture evolution",
+    "AI model performance analysis",
+    "Infrastructure scaling patterns"
+  ]
+}

@@ -1,0 +1,54 @@
+[
+  {
+    "model": "claude",
+    "strategy": "technical",
+    "score": 87.25,
+    "grade": "B+",
+    "ready": true,
+    "feedback": {
+      "style": "Too short (344 words, minimum: 400)",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 344 (target: 500)",
+      "ap_evaluation": "Strengths: Strong opening hook, clear problem identification, practical solutions with concrete examples from Stripe and Facebook, logical flow from problem to solution | Weaknesses: Several grammatical errors ('works perfect' should be 'works perfectly', 'fail catastrophic' should be 'fail catastrophically', 'most effective' should be 'most effectively'), incomplete conclusion, self-referential note about missing data weakens credibility"
+    }
+  },
+  {
+    "model": "gpt4",
+    "strategy": "business",
+    "score": 87.0,
+    "grade": "B+",
+    "ready": true,
+    "feedback": {
+      "style": "3 paragraphs too long (>4 sentences) | No data or statistics found",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 443 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent sentence structure and clarity, strong opening hook, good use of concrete examples like Atlassian and Stripe, compelling statistics from DevOps report | Weaknesses: Argument feels incomplete due to abrupt ending, lacks clear actionable recommendations, the core question posed isn't fully answered, missing promised data point creates credibility gap"
+    }
+  },
+  {
+    "model": "claude",
+    "strategy": "business",
+    "score": 86.8625,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "Too short (305 words, minimum: 400) | No data or statistics found",
+      "cliches": "Found clich\u00e9s: robust",
+      "brevity": "Word count: 305 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent sentence structure and clarity, strong logical progression from problem to solution, compelling real-world example with Stripe, practical insights about testing as accelerant rather than bottleneck | Weaknesses: Abrupt ending suggests incomplete conclusion, could benefit from more specific metrics or data to support claims, some assertions lack concrete evidence"
+    }
+  },
+  {
+    "model": "gpt4",
+    "strategy": "technical",
+    "score": 83.30000000000001,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "4 paragraphs too long (>4 sentences) | Too many colons (4, max: 2) | No data or statistics found",
+      "cliches": "Found clich\u00e9s: robust",
+      "brevity": "Word count: 425 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent sentence variety and flow, compelling real-world examples (TikTok, Google, Dropbox), clear problem-solution structure, strong opening hook | Weaknesses: Incomplete ending suggests truncation, acknowledges missing data points that weaken credibility, some claims need stronger evidence support"
+    }
+  }
+]

@@ -1,0 +1,3 @@
+For decades, enterprise software has been a railroad. Vendors built the tracks, defining rigid workflows for everything from sales to finance, and businesses ran their trains on them. Deviating from the path was costly and complex. This era is ending.
+
+The new architecture isn't a railroad; it's a map. At its core is the semantic layer, a consistent, business-centric model of an organization's data. It translates raw database tables into understandable concepts like "customer," "active user," and "net revenue retention." This

@@ -1,0 +1,67 @@
+[
+  {
+    "model": "claude",
+    "strategy": "business",
+    "score": 90.3,
+    "grade": "A-",
+    "ready": true,
+    "feedback": {
+      "style": "No data or statistics found",
+      "cliches": "Found clich\u00e9s: robust",
+      "brevity": "Word count: 444 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent sentence structure and clarity, compelling opening hook, strong concrete examples from Netflix and Facebook, logical progression from problem to solution | Weaknesses: Abrupt ending suggests incomplete post, could benefit from actionable recommendations or implementation steps, some claims need quantitative support"
+    }
+  },
+  {
+    "model": "gemini",
+    "strategy": "technical",
+    "score": 88.55,
+    "grade": "B+",
+    "ready": true,
+    "feedback": {
+      "style": "Too short (200 words, minimum: 400)",
+      "cliches": "Found clich\u00e9s: robust",
+      "brevity": "Word count: 200 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent opening hook, clear thesis progression, strong use of concrete data from DORA report, sophisticated vocabulary and varied sentence structure, compelling contrast between old and new paradigms | Weaknesses: Abrupt ending suggests incomplete argument, could benefit from actionable recommendations or implementation guidance, some assertions need additional supporting evidence"
+    }
+  },
+  {
+    "model": "gpt4",
+    "strategy": "business",
+    "score": 88.5,
+    "grade": "B+",
+    "ready": true,
+    "feedback": {
+      "style": "3 paragraphs too long (>4 sentences) | No data or statistics found",
+      "cliches": "Found clich\u00e9s: best practice",
+      "brevity": "Word count: 490 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent sentence structure and clarity, compelling opening hook, strong real-world examples from Amazon and Google, logical progression from problem to solution, sophisticated vocabulary appropriate for tech audience | Weaknesses: Abrupt ending suggests incomplete post, could benefit from more specific metrics or data to support claims, transition between paragraphs could be smoother in places"
+    }
+  },
+  {
+    "model": "gpt4",
+    "strategy": "technical",
+    "score": 84.5,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "3 paragraphs too long (>4 sentences) | Too many colons (4, max: 2) | No data or statistics found | Opening sentence too weak/short",
+      "cliches": "Found clich\u00e9s: best practice",
+      "brevity": "Word count: 484 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent sentence structure and clarity, strong opening hook, well-integrated evidence from credible sources like Google and State of DevOps report, practical actionable advice with concrete examples | Weaknesses: Abrupt ending suggests incomplete post, could benefit from stronger transitions between paragraphs, some technical jargon may limit accessibility to broader audience"
+    }
+  },
+  {
+    "model": "claude",
+    "strategy": "technical",
+    "score": 83.9375,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "Too short (327 words, minimum: 400) | No data or statistics found",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 327 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent sentence structure and clarity, strong opening hook, logical progression from problem to solutions, good use of specific technical examples like feature flags and blue-green deployments | Weaknesses: Argument feels incomplete due to abrupt ending, lacks concrete evidence (author acknowledges missing DORA statistics), limited depth in solution explanations, no clear conclusion or call to action"
+    }
+  }
+]

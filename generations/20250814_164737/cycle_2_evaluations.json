@@ -1,0 +1,28 @@
+[
+  {
+    "model": "claude",
+    "strategy": "refined",
+    "score": 91.8,
+    "grade": "A-",
+    "ready": true,
+    "feedback": {
+      "style": "No data or statistics found",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 423 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent sentence structure and clarity, strong opening hook, compelling real-world examples (Goldman Sachs, sales development), well-integrated statistical evidence from credible sources, clear progression from problem to solution | Weaknesses: Abrupt ending suggests incomplete conclusion, could benefit from addressing potential counterarguments or implementation challenges, some claims about 'dramatic' shifts could use additional supporting evidence"
+    }
+  },
+  {
+    "model": "gpt4",
+    "strategy": "refined",
+    "score": 85.6,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "2 paragraphs too long (>4 sentences) | Too many colons (4, max: 2) | No data or statistics found",
+      "cliches": "Found clich\u00e9s: leverage, next generation",
+      "brevity": "Word count: 422 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent sentence structure and clarity, strong thesis with concrete evidence from McKinsey and BCG studies, compelling real-world examples from Goldman Sachs and Stripe, smooth logical progression from historical context to modern reality | Weaknesses: Abrupt ending suggests incomplete conclusion, could benefit from addressing potential counterarguments or implementation challenges, some claims about AI capabilities could use more nuanced discussion of limitations"
+    }
+  }
+]

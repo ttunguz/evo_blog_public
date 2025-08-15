@@ -1,0 +1,80 @@
+[
+  {
+    "model": "gemini",
+    "strategy": "business",
+    "score": 89.3125,
+    "grade": "B+",
+    "ready": true,
+    "feedback": {
+      "style": "Too short (309 words, minimum: 400) | 1 paragraphs too long (>4 sentences)",
+      "cliches": "Found clich\u00e9s: leverage",
+      "brevity": "Word count: 309 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent grammar and sentence structure, clear thesis with strong progression, compelling concrete example with sales manager, solid statistical evidence from credible sources, practical insights about required skill changes | Weaknesses: Argument feels incomplete due to truncation, could benefit from addressing potential counterarguments or limitations, transition between paragraphs could be smoother in places"
+    }
+  },
+  {
+    "model": "gemini",
+    "strategy": "technical",
+    "score": 88.38749999999999,
+    "grade": "B+",
+    "ready": true,
+    "feedback": {
+      "style": "Too short (115 words, minimum: 400) | 1 paragraphs too long (>4 sentences)",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 115 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent sentence structure and clarity, compelling thesis with strong opening, effective use of concrete statistics and examples, clear progression from problem to solution | Weaknesses: Abrupt ending suggests incomplete post, could benefit from addressing potential counterarguments or implementation challenges"
+    }
+  },
+  {
+    "model": "gpt4",
+    "strategy": "business",
+    "score": 86.80000000000001,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "4 paragraphs too long (>4 sentences) | Too many colons (5, max: 2)",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 418 (target: 500)",
+      "ap_evaluation": "Strengths: Clear, engaging prose with strong opening hook. Excellent use of concrete examples (Goldman Sachs, Morgan Stanley, Stripe). Good sentence variety and professional tone. Logical progression from concept to examples to implications. | Weaknesses: Incomplete conclusion weakens overall impact. The '[NEEDS DATA]' placeholder disrupts flow and credibility. Some claims need stronger quantitative support beyond the single McKinsey statistic. Could better address potential counterarguments."
+    }
+  },
+  {
+    "model": "claude",
+    "strategy": "technical",
+    "score": 86.2,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "No data or statistics found",
+      "cliches": "Found clich\u00e9s: leverage, unprecedented",
+      "brevity": "Word count: 438 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent opening hook, clear thesis, strong concrete examples, good use of subheadings for structure, compelling economic argument | Weaknesses: Incomplete ending suggests truncation, missing promised data statistics, some claims need more evidence, could benefit from counterarguments or limitations"
+    }
+  },
+  {
+    "model": "claude",
+    "strategy": "business",
+    "score": 85.3,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "No data or statistics found | Opening sentence too weak/short",
+      "cliches": "Found clich\u00e9s: next generation",
+      "brevity": "Word count: 403 (target: 500)",
+      "ap_evaluation": "Strengths: Excellent writing clarity and flow, strong concrete examples (customer success teams), compelling opening hook, good structural organization with clear headers | Weaknesses: Incomplete post cuts off mid-sentence, lacks supporting data (author acknowledges this), argument relies heavily on assertion rather than evidence, missing conclusion weakens overall persuasiveness"
+    }
+  },
+  {
+    "model": "gpt4",
+    "strategy": "technical",
+    "score": 82.4,
+    "grade": "B-",
+    "ready": false,
+    "feedback": {
+      "style": "3 paragraphs too long (>4 sentences) | Too many colons (5, max: 2) | No data or statistics found | Opening sentence too weak/short",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 459 (target: 500)",
+      "ap_evaluation": "Strengths: Strong opening hook, concrete examples (Morgan Stanley, Klarna), clear thesis development, good use of specific data points, accessible writing style that balances technical concepts with clarity | Weaknesses: Abrupt ending suggests incomplete post, some claims need stronger evidence support, the McKinsey reference lacks specific data, transitions between paragraphs could be smoother, needs stronger conclusion to tie arguments together"
+    }
+  }
+]

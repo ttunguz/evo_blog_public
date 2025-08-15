@@ -1,0 +1,55 @@
+{
+  "author": "Tomasz Tunguz",
+  "blog_url": "https://tomtunguz.com",
+  "writing_style": {
+    "target_word_count": 750,
+    "min_word_count": 500,
+    "max_word_count": 900,
+    "paragraphs": {
+      "sentences_per_paragraph": [2, 4],
+      "prefer_short_paragraphs": true
+    },
+    "tone": ["analytical", "conversational", "data-driven"],
+    "pronouns": "we",
+    "include_personal_anecdotes": true
+  },
+  "content_preferences": {
+    "data_points_per_post": [2, 4],
+    "include_charts": true,
+    "cite_sources": true,
+    "conclusion_cta": true,
+    "opening_hook_required": true
+  },
+  "topics": {
+    "primary": ["SaaS", "venture capital", "startups", "data analysis"],
+    "avoid": []
+  },
+  "models": {
+    "claude_sonnet": {
+      "model": "claude-3-5-sonnet-20241022",
+      "temperature": 0.7,
+      "max_tokens": 2000
+    },
+    "gpt4": {
+      "model": "gpt-4-turbo-preview",
+      "temperature": 0.7,
+      "max_tokens": 2000
+    },
+    "gemini": {
+      "model": "gemini-2.5-pro",
+      "temperature": 0.7,
+      "max_tokens": 2000
+    },
+    "local": {
+      "model": "qwen2.5:32b",
+      "temperature": 0.8,
+      "max_tokens": 2000
+    }
+  },
+  "generation_settings": {
+    "variations_per_model": 2,
+    "total_cycles": 3,
+    "refinements_cycle_2": 3,
+    "final_candidates": 3
+  }
+}
