@@ -1,0 +1,115 @@
+{
+  "framework_description": "SCQA (Situation, Complication, Question, Answer) is a narrative structure that creates compelling, logical arguments by establishing context, introducing tension, raising implicit questions, and providing evidence-based solutions.",
+  
+  "situation": {
+    "description": "Current stable state, status quo, or established context",
+    "purpose": "Set the stage with what readers already know or accept as true",
+    "characteristics": [
+      "Establishes baseline understanding",
+      "References current industry state",
+      "Provides necessary context",
+      "Creates stable foundation"
+    ],
+    "prompts": [
+      "What is the current status quo?",
+      "What stable situation exists?",
+      "What do we currently know about this area?",
+      "What is the established baseline?"
+    ],
+    "examples": [
+      "Customer support has traditionally required large teams of human agents",
+      "SaaS startups typically spend 25% of revenue on customer acquisition",
+      "Most enterprise software decisions take 6-12 months to complete"
+    ]
+  },
+  
+  "complication": {
+    "description": "The disruption, problem, change, or tension that has emerged",
+    "purpose": "Introduce what's changing or what problem has arisen that disrupts the situation",
+    "characteristics": [
+      "Creates tension or conflict",
+      "Introduces change or disruption",
+      "Challenges the status quo",
+      "Makes the situation unstable"
+    ],
+    "prompts": [
+      "What is changing?",
+      "What problem has emerged?",
+      "What disruption is occurring?",
+      "What tension has developed?"
+    ],
+    "examples": [
+      "AI agents now handle 67% of Klarna's customer inquiries with better satisfaction scores",
+      "Product-led growth is reducing traditional sales cycle times to weeks",
+      "New AI capabilities are forcing companies to rethink their entire technology stack"
+    ]
+  },
+  
+  "question": {
+    "description": "The key question or challenge this creates (often implicit)",
+    "purpose": "The central question that readers will want answered, usually felt rather than explicitly stated",
+    "characteristics": [
+      "Often implicit in good writing",
+      "Drives reader engagement",
+      "Creates urgency for an answer",
+      "Connects situation to complication"
+    ],
+    "prompts": [
+      "What question does this raise?",
+      "What needs to be answered?",
+      "What should leaders be asking?",
+      "What decision needs to be made?"
+    ],
+    "examples": [
+      "How should customer support teams adapt to this AI-first reality?",
+      "What does this mean for traditional B2B sales strategies?",
+      "How can enterprises evaluate and implement these new capabilities?"
+    ]
+  },
+  
+  "answer": {
+    "description": "The insight, solution, or response based on evidence and analysis",
+    "purpose": "Provide evidence-based answers, insights, and actionable guidance",
+    "characteristics": [
+      "Based on data and evidence",
+      "Provides actionable insights",
+      "Addresses the implicit question",
+      "Offers practical solutions"
+    ],
+    "prompts": [
+      "What evidence-based answer do we have?",
+      "What should be done?",
+      "What insights can we provide?",
+      "What practical steps are recommended?"
+    ],
+    "examples": [
+      "Companies should start with tier-1 support automation while training agents for complex escalations",
+      "Focus on product-led trial experiences that demonstrate value within the first 24 hours",
+      "Begin with specific use cases that have clear ROI metrics rather than broad AI transformations"
+    ]
+  },
+  
+  "quality_criteria": {
+    "logical_flow": "Each component should naturally lead to the next",
+    "specificity": "Use concrete examples and specific data points",
+    "relevance": "All components should relate to startup/VC audience",
+    "actionability": "Answer should provide practical next steps",
+    "evidence_based": "Claims should be supported by data or logical reasoning"
+  },
+  
+  "common_mistakes": [
+    "Making the Question too explicit (should be felt, not stated)",
+    "Situation too generic or broad",
+    "Complication that doesn't create real tension",
+    "Answer that doesn't address the implicit Question",
+    "Missing logical connections between components"
+  ],
+  
+  "tom_tunguz_adaptations": {
+    "word_count": "Keep each component concise (1-3 sentences)",
+    "data_focus": "Include specific statistics and real company examples",
+    "practical_tone": "Focus on actionable insights for founders and VCs",
+    "no_headers": "Weave SCQA naturally into prose without explicit labels",
+    "opening_hook": "First sentence should capture Situation compellingly"
+  }
+}

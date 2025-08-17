@@ -24,6 +24,7 @@ class EvaluationScore:
     style_match: float  # 0-100
     cliche_absence: float  # 0-100
     brevity_score: float  # 0-100
+    scqa_structure: float  # 0-100 (SCQA narrative flow)
     overall_grade: str  # A+, A, A-, B+, B, B-, C+, etc.
     overall_score: float  # 0-100
     feedback: Dict[str, str]
@@ -89,6 +90,9 @@ class BlogEvaluator:
         # Cliché detection
         cliche_score, cliche_feedback = self._evaluate_cliches(blog_post)
         
+        # SCQA structure evaluation
+        scqa_score, scqa_feedback = self._evaluate_scqa_structure(blog_post)
+        
         # AP English teacher evaluation (grammar + argument strength)
         if self.claude_client:
             grammar_score, argument_score, ap_feedback = self._evaluate_with_ap_teacher(
@@ -102,13 +106,14 @@ class BlogEvaluator:
         # Calculate brevity score
         brevity_score = self._evaluate_brevity(blog_post)
         
-        # Calculate overall score with brevity as a factor
+        # Calculate overall score with SCQA structure included
         overall_score = (
             grammar_score * 0.20 +
-            argument_score * 0.30 +
+            argument_score * 0.25 +
             style_score * 0.20 +
             cliche_score * 0.15 +
-            brevity_score * 0.15
+            brevity_score * 0.10 +
+            scqa_score * 0.10
         )
         
         # Convert to letter grade
@@ -123,12 +128,14 @@ class BlogEvaluator:
             style_match=style_score,
             cliche_absence=cliche_score,
             brevity_score=brevity_score,
+            scqa_structure=scqa_score,
             overall_grade=overall_grade,
             overall_score=overall_score,
             feedback={
                 "style": style_feedback,
                 "cliches": cliche_feedback,
                 "brevity": f"Word count: {len(blog_post.split())} (target: 500)",
+                "scqa": scqa_feedback,
                 "ap_evaluation": ap_feedback
             },
             ready_to_ship=ready_to_ship
@@ -247,6 +254,96 @@ class BlogEvaluator:
             feedback = "No clichés detected"
         
         return score, feedback
+    
+    def _evaluate_scqa_structure(self, blog_post: str) -> Tuple[float, str]:
+        """Evaluate how well the post follows SCQA narrative structure"""
+        score = 100.0
+        feedback = []
+        
+        # Split into paragraphs for analysis
+        paragraphs = [p.strip() for p in blog_post.split('\n\n') if p.strip()]
+        
+        if len(paragraphs) < 4:
+            score -= 20
+            feedback.append("Post too short for clear SCQA structure")
+            return max(score, 0), "; ".join(feedback)
+        
+        # Analyze narrative flow indicators
+        first_para = paragraphs[0].lower()
+        second_para = paragraphs[1].lower() if len(paragraphs) > 1 else ""
+        last_para = paragraphs[-1].lower()
+        
+        # Check for situation establishment in opening
+        situation_indicators = [
+            "traditionally", "historically", "current", "today", "established",
+            "standard", "typical", "most", "generally", "conventional"
+        ]
+        if not any(indicator in first_para for indicator in situation_indicators):
+            score -= 15
+            feedback.append("Opening doesn't clearly establish current situation")
+        
+        # Check for complication signals
+        complication_indicators = [
+            "but", "however", "now", "recently", "emerging", "disrupting",
+            "changing", "shift", "challenge", "problem", "tension"
+        ]
+        complication_found = False
+        for para in paragraphs[1:3]:  # Check second and third paragraphs
+            if any(indicator in para.lower() for indicator in complication_indicators):
+                complication_found = True
+                break
+        
+        if not complication_found:
+            score -= 20
+            feedback.append("No clear complication or disruption introduced")
+        
+        # Check for solution/answer indicators in later paragraphs
+        solution_indicators = [
+            "three", "models", "approach", "strategy", "solution", "response",
+            "winners", "companies should", "the answer", "suggests", "data shows"
+        ]
+        solution_found = False
+        for para in paragraphs[2:]:  # Check from third paragraph onwards
+            if any(indicator in para.lower() for indicator in solution_indicators):
+                solution_found = True
+                break
+        
+        if not solution_found:
+            score -= 15
+            feedback.append("Weak or missing solution/answer component")
+        
+        # Check for logical flow and transitions
+        transition_words = [
+            "first", "second", "third", "next", "then", "finally", "meanwhile",
+            "furthermore", "additionally", "consequently", "therefore", "thus"
+        ]
+        transition_count = 0
+        for para in paragraphs:
+            if any(word in para.lower() for word in transition_words):
+                transition_count += 1
+        
+        if transition_count < 2:
+            score -= 10
+            feedback.append("Limited use of transitional elements")
+        
+        # Check for forward-looking conclusion
+        conclusion_indicators = [
+            "will", "future", "next", "coming", "ahead", "determine", "winners",
+            "transition", "shift", "evolution", "opportunity"
+        ]
+        if not any(indicator in last_para for indicator in conclusion_indicators):
+            score -= 10
+            feedback.append("Conclusion doesn't tie to future implications")
+        
+        # Bonus for strong narrative coherence
+        if score >= 85:
+            feedback.append("Strong SCQA narrative structure")
+        elif score >= 70:
+            feedback.append("Good structural foundation with room for improvement")
+        else:
+            feedback.append("SCQA structure needs significant work")
+        
+        return max(score, 0), "; ".join(feedback) if feedback else "Clear SCQA structure"
     
     def _evaluate_with_ap_teacher(self, blog_post: str, title: str) -> Tuple[float, float, str]:
         """Use Claude to evaluate like an AP English teacher"""
@@ -369,6 +466,9 @@ Focus on: clarity, conciseness, argument flow, evidence quality, and practical i
         
         if evaluation.cliche_absence < 90:
             suggestions.append("Remove business clichés and use more specific language")
+        
+        if evaluation.scqa_structure < 85:
+            suggestions.append("Improve SCQA narrative flow: clearer situation → complication → question → answer")
         
         if not evaluation.ready_to_ship:
             suggestions.append(f"Current grade: {evaluation.overall_grade}. Target: B+ or better")

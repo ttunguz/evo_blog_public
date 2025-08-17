@@ -51,5 +51,15 @@
     "total_cycles": 3,
     "refinements_cycle_2": 3,
     "final_candidates": 3
+  },
+  "scqa_planning": {
+    "enabled": true,
+    "opus_model": "claude-opus-4-1-20250805",
+    "temperature": 0.3,
+    "max_tokens": 1500,
+    "structure_weight": 0.15,
+    "confidence_threshold": 60,
+    "fallback_enabled": true,
+    "validation_enabled": true
   }
 }

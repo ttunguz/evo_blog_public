@@ -21,6 +21,7 @@ from models import ClaudeClient, OpenAIClient, GeminiClient, LocalClient
 from evaluator import BlogEvaluator, EvaluationScore
 from data_verifier import DataVerifier
 from content_retriever import ContentRetriever
+from scqa_planner import SCQAPlanner, SCQAStructure
 
 
 class BlogGenerator:
@@ -51,12 +52,22 @@ class BlogGenerator:
         # Initialize content retriever for enhanced context
         self.content_retriever = ContentRetriever()
         
+        # Initialize SCQA planner
+        self.scqa_planner = SCQAPlanner(claude_client=self.models.get('claude'))
+        
+        # Load SCQA settings
+        config_path = Path.home() / "Documents" / "evo_blog" / "config" / "global_settings.json"
+        with open(config_path, 'r') as f:
+            self.global_config = json.load(f)
+        self.scqa_config = self.global_config.get('scqa_planning', {})
+        
         # Generation statistics
         self.stats = {
             'total_generated': 0,
             'total_cost': 0,
             'best_score': 0,
-            'ready_posts': 0
+            'ready_posts': 0,
+            'scqa_enabled': self.scqa_config.get('enabled', True)
         }
     
     def _initialize_models(self) -> Dict:
@@ -388,7 +399,7 @@ Key improvements needed:
         
         return refinement
     
-    def generate_blog_post(self, topic: str, title: str = "", max_cycles: int = 3) -> Dict:
+    def generate_blog_post(self, topic: str, title: str = "", max_cycles: int = 3, enable_scqa: bool = None) -> Dict:
         """
         Main pipeline to generate and refine blog posts
         
@@ -396,6 +407,7 @@ Key improvements needed:
             topic: The topic or prompt for the blog post
             title: Optional title for context
             max_cycles: Number of refinement cycles (default: 3)
+            enable_scqa: Override SCQA planning (None uses config default)
             
         Returns:
             The best blog post with metadata
@@ -405,12 +417,49 @@ Key improvements needed:
         print(f"Generating Blog Post: {title or topic[:50]}")
         print(f"{'='*60}")
         
-        # Save initial prompt
+        # Determine if SCQA should be enabled
+        use_scqa = enable_scqa if enable_scqa is not None else self.scqa_config.get('enabled', True)
+        
+        # SCQA Planning Phase
+        scqa_structure = None
+        if use_scqa:
+            print("\n🎯 SCQA Planning Phase")
+            try:
+                scqa_structure = self.scqa_planner.plan_structure(topic, title)
+                
+                # Validate SCQA structure
+                if self.scqa_config.get('validation_enabled', True):
+                    is_valid, issues = self.scqa_planner.validate_scqa_structure(scqa_structure)
+                    if not is_valid:
+                        print(f"⚠️  SCQA validation issues: {', '.join(issues)}")
+                        if scqa_structure.confidence_score < self.scqa_config.get('confidence_threshold', 60):
+                            print("🔄 Using fallback structure due to low confidence")
+                
+                # Show SCQA summary
+                print(self.scqa_planner.get_scqa_summary(scqa_structure))
+                
+                # Create enhanced prompt
+                current_prompt = self.scqa_planner.create_enhanced_prompt(scqa_structure, topic)
+                
+            except Exception as e:
+                print(f"⚠️  SCQA planning failed: {e}")
+                if self.scqa_config.get('fallback_enabled', True):
+                    print("🔄 Falling back to direct topic generation")
+                    current_prompt = topic
+                else:
+                    raise e
+        else:
+            print("📝 Direct topic generation (SCQA disabled)")
+            current_prompt = topic
+        
+        # Save initial prompt and SCQA structure
         with open(self.output_dir / "initial_prompt.txt", 'w') as f:
-            f.write(f"Topic: {topic}\nTitle: {title}\n")
+            f.write(f"Topic: {topic}\nTitle: {title}\nSCQA Enabled: {use_scqa}\n")
+            if scqa_structure:
+                f.write(f"\nSCQA Structure:\n{self.scqa_planner.get_scqa_summary(scqa_structure)}")
+                f.write(f"\nEnhanced Prompt:\n{current_prompt}")
         
         all_variations = []
-        current_prompt = topic
         
         for cycle in range(1, max_cycles + 1):
             print(f"\n--- Cycle {cycle} ---")
@@ -666,7 +715,57 @@ def main():
     parser.add_argument("--cycles", type=int, default=2, help="Number of refinement cycles (1-3)")
     parser.add_argument("--output", help="Output directory for generated posts")
     
+    # SCQA options
+    scqa_group = parser.add_mutually_exclusive_group()
+    scqa_group.add_argument("--enable-scqa", action="store_true", help="Enable SCQA planning (default)")
+    scqa_group.add_argument("--no-scqa", action="store_true", help="Disable SCQA planning")
+    scqa_group.add_argument("--scqa-only", action="store_true", help="Only generate SCQA structure, don't create blog post")
+    
     args = parser.parse_args()
+    
+    # Determine SCQA setting
+    enable_scqa = None
+    if args.no_scqa:
+        enable_scqa = False
+    elif args.enable_scqa:
+        enable_scqa = True
+    # If neither flag, use config default (None)
+    
+    # Handle SCQA-only mode
+    if args.scqa_only:
+        print("🎯 SCQA Structure Analysis Only")
+        print("="*50)
+        
+        # Just run SCQA planning
+        from scqa_planner import SCQAPlanner
+        from models import ClaudeClient
+        
+        # Initialize Claude for SCQA planning
+        config_path = Path.home() / "Documents" / "evo_blog" / "config" / "model_configs.json"
+        with open(config_path, 'r') as f:
+            api_keys = json.load(f)
+        
+        claude_client = ClaudeClient(
+            api_key=api_keys['anthropic_api_key'],
+            config={'model': 'claude-opus-4-1-20250805'}
+        )
+        
+        planner = SCQAPlanner(claude_client=claude_client)
+        structure = planner.plan_structure(args.topic, args.title)
+        
+        print(planner.get_scqa_summary(structure))
+        
+        is_valid, issues = planner.validate_scqa_structure(structure)
+        print(f"\nValidation: {'✅ Valid' if is_valid else '❌ Issues found'}")
+        if issues:
+            for issue in issues:
+                print(f"  - {issue}")
+        
+        print(f"\nEnhanced Prompt Preview:")
+        print("-" * 30)
+        enhanced_prompt = planner.create_enhanced_prompt(structure, args.topic)
+        print(enhanced_prompt[:500] + "..." if len(enhanced_prompt) > 500 else enhanced_prompt)
+        return
     
     # Initialize generator
     generator = BlogGenerator(output_dir=args.output)
@@ -675,7 +774,8 @@ def main():
     result = generator.generate_blog_post(
         topic=args.topic,
         title=args.title,
-        max_cycles=min(args.cycles, 3)
+        max_cycles=min(args.cycles, 3),
+        enable_scqa=enable_scqa
     )
     
     if result and result['ready']:
