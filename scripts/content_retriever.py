@@ -14,10 +14,19 @@ from typing import List, Dict, Optional
 sys.path.insert(0, "/Users/tomasztunguz/Documents/coding/h48/content")
 
 try:
+    # First try direct import
     from blog_indexer import ContentIndexer
 except ImportError:
-    print("Warning: ContentIndexer not available. Blog generation will proceed without enhanced context.")
-    ContentIndexer = None
+    try:
+        # Try importing with full path
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("blog_indexer", "/Users/tomasztunguz/Documents/coding/h48/content/blog_indexer.py")
+        blog_indexer_module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(blog_indexer_module)
+        ContentIndexer = blog_indexer_module.ContentIndexer
+    except Exception as e:
+        print(f"Warning: ContentIndexer not available ({e}). Blog generation will proceed without enhanced context.")
+        ContentIndexer = None
 
 
 class ContentRetriever:

@@ -1,0 +1,50 @@
+graph TD
+    A[📚 Published Posts Analysis] --> B[🔍 Post Analyzer]
+    B --> C[📊 Style Patterns Extracted]
+    C --> |"Writing patterns<br/>Data usage<br/>Structure analysis"| D[✏️ Prompt Generator]
+    
+    D --> E[🤖 Multi-Model Generation]
+    E --> |"Claude, GPT-4<br/>Local models"| F[📝 Generated Posts]
+    
+    F --> G[⚖️ Comparative Evaluator]
+    G --> |"AP English grading<br/>Style matching<br/>Content quality"| H[💬 Feedback Manager]
+    
+    H --> |"Specific improvements<br/>Score deltas<br/>Pattern analysis"| I[🔄 Iterative Improver]
+    
+    I --> |"Refined prompts<br/>Better parameters"| D
+    
+    J[📈 Braintrust Tracking] --> K[🎯 Experiment Logging]
+    E --> K
+    G --> K
+    I --> K
+    
+    L[🗂️ ContentIndexer] --> E
+    M[🏗️ BlogGenerator] --> E
+    
+    N[📋 Evaluation Criteria] --> G
+    O[⚙️ Model Configs] --> E
+    
+    P[🏆 Best Results] --> Q[📄 Final Blog Post]
+    I --> P
+    
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style C fill:#e8f5e8
+    style D fill:#fff3e0
+    style E fill:#fce4ec
+    style F fill:#f1f8e9
+    style G fill:#e0f2f1
+    style H fill:#fff8e1
+    style I fill:#e8eaf6
+    style J fill:#f9fbe7
+    style K fill:#f3e5f5
+    style P fill:#ffebee
+    style Q fill:#e8f5e8
+    
+    classDef processNode fill:#bbdefb,stroke:#1976d2,stroke-width:2px
+    classDef dataNode fill:#c8e6c9,stroke:#388e3c,stroke-width:2px
+    classDef outputNode fill:#ffcdd2,stroke:#d32f2f,stroke-width:2px
+    
+    class A,F,P,Q outputNode
+    class B,C,D,E,G,H,I processNode
+    class J,K,L,M,N,O dataNode

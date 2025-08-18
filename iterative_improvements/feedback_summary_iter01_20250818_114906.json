@@ -1,0 +1,28 @@
+{
+  "iteration": 1,
+  "timestamp": "20250818_114906",
+  "overall_improvement": 0.0,
+  "best_performing_prompt": "comprehensive",
+  "worst_performing_areas": [
+    "conclusion_strength",
+    "hook_effectiveness",
+    "structural_match"
+  ],
+  "confidence_score": 0.615237496418152,
+  "optimization_recommendations": [],
+  "performance_trends": {},
+  "performance_history": [
+    {
+      "iteration": 1,
+      "timestamp": "2025-08-18T11:49:06.324575",
+      "conclusion_strength": 0.1529831718510964,
+      "hook_effectiveness": 0.3750379493407071,
+      "structural_match": 0.5095463332000009,
+      "overall_similarity": 0.5853149604783774,
+      "content_depth": 0.6028693528693528,
+      "style_similarity": 0.605518278018278,
+      "data_usage_match": 0.6277777777777778,
+      "voice_authenticity": 0.7626262626262627
+    }
+  ]
+}

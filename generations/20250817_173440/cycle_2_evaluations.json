@@ -1,0 +1,30 @@
+[
+  {
+    "model": "gpt4",
+    "strategy": "refined",
+    "score": 92.98300000000002,
+    "grade": "A-",
+    "ready": true,
+    "feedback": {
+      "style": "Slightly long (507 words, ideal: 500) | 2 paragraphs too long (>4 sentences)",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 507 (target: 500)",
+      "scqa": "Limited use of transitional elements; Strong SCQA narrative structure",
+      "ap_evaluation": "Strengths: Excellent prose quality with sophisticated sentence structure, compelling hook and thesis, strong use of specific data and examples (Cursor's million users, Replit's margin swing), clear logical progression from traditional SaaS to AI economics | Weaknesses: Abrupt ending suggests incomplete argument, could benefit from exploring potential solutions more deeply, some technical jargon may alienate general readers"
+    }
+  },
+  {
+    "model": "claude",
+    "strategy": "refined",
+    "score": 84.03750000000001,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "Too short (291 words, minimum: 400)",
+      "cliches": "Found clich\u00e9s: breakthrough",
+      "brevity": "Word count: 291 (target: 500)",
+      "scqa": "Opening doesn't clearly establish current situation; No clear complication or disruption introduced; Limited use of transitional elements; SCQA structure needs significant work",
+      "ap_evaluation": "Strengths: Excellent prose quality with sophisticated sentence structure and clear transitions. Strong opening hook and compelling economic framework. Good use of specific examples like GitHub Copilot and Cursor to illustrate points. | Weaknesses: Argument feels incomplete - cuts off mid-thought and lacks concrete evidence (author acknowledges missing data). The historical parallel is mentioned but underdeveloped. No clear resolution or actionable insights for readers."
+    }
+  }
+]

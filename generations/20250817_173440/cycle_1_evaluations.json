@@ -1,0 +1,58 @@
+[
+  {
+    "model": "gpt4",
+    "strategy": "technical",
+    "score": 93.01100000000001,
+    "grade": "A",
+    "ready": true,
+    "feedback": {
+      "style": "Slightly long (519 words, ideal: 500) | 3 paragraphs too long (>4 sentences)",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 519 (target: 500)",
+      "scqa": "Strong SCQA narrative structure",
+      "ap_evaluation": "Strengths: Excellent prose quality with varied sentence structure, compelling hook and thesis, strong use of specific data and examples, clear logical progression from problem identification to implications | Weaknesses: Abrupt ending suggests incomplete post, could benefit from exploring potential solutions more deeply, some technical jargon may alienate general readers"
+    }
+  },
+  {
+    "model": "claude",
+    "strategy": "business",
+    "score": 87.85,
+    "grade": "B+",
+    "ready": true,
+    "feedback": {
+      "style": "Too many colons (3, max: 2)",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 401 (target: 500)",
+      "scqa": "Opening doesn't clearly establish current situation; Limited use of transitional elements; Good structural foundation with room for improvement",
+      "ap_evaluation": "Strengths: Clear writing style, strong opening thesis, specific statistics (67% market share), well-structured argument flow, practical business insights about two-tier pricing strategy | Weaknesses: Incomplete post cuts off mid-sentence, missing critical data points explicitly noted in brackets, unsupported claims about gross margins without sources, Cognition example lacks specifics, argument feels rushed in places"
+    }
+  },
+  {
+    "model": "gpt4",
+    "strategy": "business",
+    "score": 85.70300000000002,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "Slightly long (587 words, ideal: 500) | 5 paragraphs too long (>4 sentences) | Too many colons (3, max: 2)",
+      "cliches": "Found clich\u00e9s: next generation",
+      "brevity": "Word count: 587 (target: 500)",
+      "scqa": "Opening doesn't clearly establish current situation; Strong SCQA narrative structure",
+      "ap_evaluation": "Strengths: Excellent prose style with varied sentence structure, compelling opening hook, strong use of specific data and examples, clear logical progression from problem identification to market analysis to historical parallels | Weaknesses: Abrupt ending suggests incomplete argument, could benefit from more concrete solutions or predictions, some claims about infrastructure spending could use additional sourcing"
+    }
+  },
+  {
+    "model": "claude",
+    "strategy": "technical",
+    "score": 83.875,
+    "grade": "B",
+    "ready": false,
+    "feedback": {
+      "style": "Too short (342 words, minimum: 400) | Too many colons (4, max: 2)",
+      "cliches": "No clich\u00e9s detected",
+      "brevity": "Word count: 342 (target: 500)",
+      "scqa": "Opening doesn't clearly establish current situation; Limited use of transitional elements; Good structural foundation with room for improvement",
+      "ap_evaluation": "Strengths: Clear, engaging writing style with strong opening hook and well-structured paragraphs. Good use of specific examples like Cursor, Replit, and Cognition to illustrate points. | Weaknesses: Incomplete argument with missing critical data (marked as [NEEDS DATA]), unfinished conclusion, and some unsupported claims about unit economics. The piece reads more like a draft than a complete analysis."
+    }
+  }
+]

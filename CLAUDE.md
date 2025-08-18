@@ -26,13 +26,11 @@ The system generates blog posts that consistently score 85-95/100 with proper To
 ### 1. Setup Environment
 
 ```bash
-# Create virtual environment
-uv venv evo_blog_env
-source evo_blog_env/bin/activate
+# Create virtual environment with uv
+uv venv
 
 # Install dependencies
 uv pip install -r requirements.txt
-uv pip install google-generativeai anthropic openai
 ```
 
 ### 2. Configure API Keys
@@ -46,7 +44,22 @@ Create `config/model_configs.json`:
 }
 ```
 
-### 3. Generate a Blog Post
+### 3. Setup Braintrust (Optional)
+
+For advanced evaluation tracking and experiment logging:
+
+```bash
+# Set Braintrust API key
+export BRAINTRUST_API_KEY="your-braintrust-key"
+
+# Test the integration
+python test_braintrust.py
+
+# Run setup helper
+python scripts/eval_braintrust.py --setup
+```
+
+### 4. Generate a Blog Post
 
 ```bash
 # Basic generation
@@ -115,6 +128,53 @@ Posts are optimized for Tom Tunguz's style:
 - **Content**: 2-3 specific data points, real company examples
 - **Tone**: Direct, practical insights for founders/VCs
 - **Format**: No H2 headers, compelling hook, forward-looking conclusion
+
+## Braintrust Integration
+
+### Experiment Tracking
+
+The system automatically logs all generations and evaluations to Braintrust when `BRAINTRUST_API_KEY` is set:
+
+- **Generation Logging**: Every model output with cost, tokens, latency
+- **Evaluation Tracking**: AP scores, grades, and detailed feedback
+- **Comparative Analysis**: Battle evaluations between post variations
+- **Experiment URLs**: Direct links to view results in Braintrust dashboard
+
+### Evaluation Scripts
+
+```bash
+# Run standalone evaluations
+python scripts/eval_braintrust.py --generations-dir generations/20250815_085043
+
+# Compare multiple posts
+python scripts/eval_braintrust.py --generations-dir generations/latest --compare
+
+# Style compliance check
+python scripts/eval_braintrust.py --generations-dir generations/latest --style
+
+# Test evaluation framework
+python scripts/eval_braintrust.py --test
+```
+
+### Configuration
+
+Braintrust settings in `config/global_settings.json`:
+
+```json
+{
+  "braintrust": {
+    "enabled": true,
+    "project_name": "evo-blog-generator",
+    "log_generations": true,
+    "log_evaluations": true,
+    "log_comparisons": true,
+    "run_factuality_checks": true,
+    "auto_battle_evaluation": true
+  }
+}
+```
+
+To disable Braintrust tracking, set `"enabled": false` or unset `BRAINTRUST_API_KEY`.
 
 ## Advanced Features
 

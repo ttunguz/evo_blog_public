@@ -1,0 +1,106 @@
+{
+  "final_summary": {
+    "run_id": "20250818_114845",
+    "total_iterations": 1,
+    "first_score": 0.6263896275955099,
+    "final_score": 0.6263896275955099,
+    "total_improvement": 0.0,
+    "avg_improvement_per_iteration": 0.0,
+    "best_iteration": 1,
+    "best_score": 0.6263896275955099,
+    "convergence_achieved": false,
+    "most_common_improvement_areas": [
+      "structure_flow",
+      "opening_hook",
+      "conclusion_impact",
+      "insight_depth",
+      "data_integration"
+    ],
+    "final_prompt": "Write in the exact style of Tom Tunguz with these CRITICAL requirements:\n\nFORMATTING REQUIREMENTS (ABSOLUTELY CRITICAL):\n- Approximately 500 words (acceptable range: 500-600 words)\n- First sentence: Must be its own standalone paragraph\n- Second sentence: Must be its own standalone paragraph and contain either a provoking statement OR a question\n- NO section headers or H2/H3 tags - write as continuous flowing prose only\n- All other paragraphs: Maximum 2 sentences longer than 20 words each per paragraph\n- Can include additional short sentences (under 20 words) for variety\n- NEVER use adverbs (words ending in -ly)\n- Each paragraph should transition smoothly to the next\n\nCONTENT STRUCTURE REQUIREMENTS:\n1. Opening: First sentence (standalone) + Second sentence with provocation/question (standalone)\n2. Context Setting: Establish the current stable situation or background (1 paragraph)\n3. Problem Introduction: Present the disruption, challenge, or emerging issue (1 paragraph)  \n4. Core Question: Implicitly raise the central question this creates (woven into content)\n5. Solution/Analysis: Provide evidence-based answers and insights (2-3 paragraphs)\n6. Conclusion: Must tie back to the opening hook and reinforce the solution\n\nNARRATIVE STRUCTURE:\nStructure the narrative to flow naturally from stable context \u2192 emerging problem \u2192 implicit question \u2192 data-driven solution. The post should read as a cohesive problem-solving narrative without explicit framework references.\n\nSTYLE CHARACTERISTICS:\n- Include 2-3 specific data points or statistics from real sources\n- Use concrete examples from real companies\n- Avoid business clich\u00e9s and adverbs\n- Maximum 2 colons in the entire post\n- Write concisely and directly - every word counts\n\nPARAGRAPH & SENTENCE VARIATION REQUIREMENTS:\n- Mix short (1-2 sentences) and longer (3-4 sentences) paragraphs\n- After two longer paragraphs, include a short one for breathing room\n- Vary sentence length within paragraphs for natural rhythm\n- Use single-sentence paragraphs sparingly for emphasis\n- Ensure smooth transitions between different paragraph lengths\n\nCRITICAL DATA REQUIREMENTS:\n- DO NOT hallucinate or invent any statistics, percentages, or data points\n- DO NOT make up company case studies or specific claims\n- If you need data to support a point, indicate [NEEDS DATA: description of what data would help]\n- Only use data points that you are certain about from your training\n- When citing statistics, be specific about the source if known\n- It's better to say \"significant\" or \"substantial\" than to invent a specific percentage\n- Real examples are preferred, but only use ones you can recall accurately\nCOMPREHENSIVE OPTIMIZATION (Version C):\n\nDATA & EXAMPLES:\n- Include 3 specific data points with sources\n- Use real company case studies with quantified outcomes\n- Prefer recent examples from 2024-2025\n- Include market context and competitive landscape when relevant\n\nSTRUCTURE & FLOW:\n- Target 35 words per paragraph\n- Use proven transition patterns: However, More importantly\n- Vary paragraph length: short (1-2 sentences) and medium (3-4 sentences)\n- Create logical progression: context \u2192 problem \u2192 analysis \u2192 solution\n\nVOICE AUTHENTICITY:\n- Channel Tom's analytical confidence and industry expertise\n- Write as an insider with access to non-public insights\n- Balance technological optimism with business pragmatism\n- Use specific, concrete language over abstract concepts\n- Include practical \"what this means\" implications\n\nQUALITY MARKERS:\n- Every paragraph serves a specific purpose in the argument\n- Insights feel novel and non-obvious to industry experts\n- Conclusion provides actionable next steps or predictions\n- Overall thesis is defensible and well-supported with evidence\n",
+    "performance_trajectory": [
+      0.6263896275955099
+    ]
+  },
+  "all_iterations": [
+    {
+      "iteration": 1,
+      "timestamp": "2025-08-18T11:49:06.326073",
+      "prompt_variations": [
+        {
+          "name": "voice_enhanced",
+          "version": "v1.3",
+          "expected_improvement": 0.18
+        },
+        {
+          "name": "topic_optimized",
+          "version": "v1.4",
+          "expected_improvement": 0.1
+        },
+        {
+          "name": "comprehensive",
+          "version": "v1.5",
+          "expected_improvement": 0.25
+        }
+      ],
+      "comparison_results": [
+        {
+          "overall_similarity": 0.5438507072302529,
+          "structural_match": 0.49802187654005914,
+          "style_similarity": 0.7097222222222221,
+          "content_depth": 0.4523809523809524,
+          "improvement_areas": [
+            "structure_flow",
+            "insight_depth",
+            "data_integration",
+            "opening_hook",
+            "conclusion_impact"
+          ]
+        },
+        {
+          "overall_similarity": 0.5857045466093694,
+          "structural_match": 0.4813529849722761,
+          "style_similarity": 0.5202380952380952,
+          "content_depth": 0.9038461538461539,
+          "improvement_areas": [
+            "structure_flow",
+            "voice_authenticity",
+            "data_integration",
+            "opening_hook",
+            "conclusion_impact"
+          ]
+        },
+        {
+          "overall_similarity": 0.6263896275955099,
+          "structural_match": 0.5492641380876674,
+          "style_similarity": 0.5865945165945167,
+          "content_depth": 0.4523809523809524,
+          "improvement_areas": [
+            "structure_flow",
+            "voice_authenticity",
+            "insight_depth",
+            "opening_hook",
+            "conclusion_impact"
+          ]
+        }
+      ],
+      "best_score_this_iteration": 0.6263896275955099,
+      "best_overall_score": 0.6263896275955099,
+      "feedback_summary": {
+        "overall_improvement": 0.0,
+        "confidence_score": 0.615237496418152,
+        "worst_areas": [
+          "conclusion_strength",
+          "hook_effectiveness",
+          "structural_match"
+        ]
+      }
+    }
+  ],
+  "run_metadata": {
+    "run_id": "20250818_114845",
+    "start_time": "2025-08-18T11:49:06.326073",
+    "end_time": "2025-08-18T11:49:06.327017",
+    "convergence_threshold": 0.02,
+    "max_stagnation": 3
+  }
+}

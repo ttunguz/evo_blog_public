@@ -1,0 +1,109 @@
+{
+  "iteration": 3,
+  "timestamp": "20250818_121040",
+  "overall_improvement": 0.06619562296494352,
+  "best_performing_prompt": "comprehensive",
+  "worst_performing_areas": [
+    "conclusion_strength",
+    "hook_effectiveness",
+    "data_usage_match"
+  ],
+  "confidence_score": 0.6997831188826065,
+  "optimization_recommendations": [],
+  "performance_trends": {
+    "conclusion_strength": [
+      0.1686502087948964,
+      0.17923559169350414,
+      0.23950628777291727
+    ],
+    "hook_effectiveness": [
+      0.32530112479776907,
+      0.4402063239710298,
+      0.2548484436172475
+    ],
+    "data_usage_match": [
+      0.4222222222222222,
+      0.4444444444444444,
+      0.3888888888888889
+    ],
+    "structural_match": [
+      0.5655388753615123,
+      0.5954791828664976,
+      0.5796503528172998
+    ],
+    "overall_similarity": [
+      0.6629092593583397,
+      0.6465774551244735,
+      0.712773078089417
+    ],
+    "style_similarity": [
+      0.6698966165413534,
+      0.5459302932642591,
+      0.8082885275372017
+    ],
+    "voice_authenticity": [
+      0.7222222222222222,
+      0.5555555555555556,
+      0.8333333333333334
+    ],
+    "content_depth": [
+      0.9444444444444444,
+      0.9801587301587301,
+      0.9903846153846154
+    ]
+  },
+  "performance_history": [
+    {
+      "iteration": 1,
+      "timestamp": "2025-08-18T12:03:59.373209",
+      "conclusion_strength": 0.1686502087948964,
+      "hook_effectiveness": 0.32530112479776907,
+      "data_usage_match": 0.4222222222222222,
+      "structural_match": 0.5655388753615123,
+      "overall_similarity": 0.6629092593583397,
+      "style_similarity": 0.6698966165413534,
+      "voice_authenticity": 0.7222222222222222,
+      "content_depth": 0.9444444444444444
+    },
+    {
+      "iteration": 2,
+      "timestamp": "2025-08-18T12:07:20.200781",
+      "conclusion_strength": 0.17923559169350414,
+      "hook_effectiveness": 0.4402063239710298,
+      "data_usage_match": 0.4444444444444444,
+      "style_similarity": 0.5459302932642591,
+      "voice_authenticity": 0.5555555555555556,
+      "structural_match": 0.5954791828664976,
+      "overall_similarity": 0.6465774551244735,
+      "content_depth": 0.9801587301587301,
+      "conclusion_strength_improvement": 0.010585382898607748,
+      "hook_effectiveness_improvement": 0.11490519917326075,
+      "data_usage_match_improvement": 0.0222222222222222,
+      "style_similarity_improvement": -0.12396632327709423,
+      "voice_authenticity_improvement": -0.16666666666666663,
+      "structural_match_improvement": 0.02994030750498533,
+      "overall_similarity_improvement": -0.016331804233866154,
+      "content_depth_improvement": 0.0357142857142857
+    },
+    {
+      "iteration": 3,
+      "timestamp": "2025-08-18T12:10:40.774242",
+      "conclusion_strength": 0.23950628777291727,
+      "hook_effectiveness": 0.2548484436172475,
+      "data_usage_match": 0.3888888888888889,
+      "structural_match": 0.5796503528172998,
+      "overall_similarity": 0.712773078089417,
+      "style_similarity": 0.8082885275372017,
+      "voice_authenticity": 0.8333333333333334,
+      "content_depth": 0.9903846153846154,
+      "conclusion_strength_improvement": 0.06027069607941313,
+      "hook_effectiveness_improvement": -0.1853578803537823,
+      "data_usage_match_improvement": -0.055555555555555525,
+      "structural_match_improvement": -0.015828830049197773,
+      "overall_similarity_improvement": 0.06619562296494352,
+      "style_similarity_improvement": 0.2623582342729426,
+      "voice_authenticity_improvement": 0.2777777777777778,
+      "content_depth_improvement": 0.0102258852258853
+    }
+  ]
+}

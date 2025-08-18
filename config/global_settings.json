@@ -61,5 +61,15 @@
     "confidence_threshold": 60,
     "fallback_enabled": true,
     "validation_enabled": true
+  },
+  "braintrust": {
+    "enabled": true,
+    "project_name": "evo-blog-generator",
+    "log_generations": true,
+    "log_evaluations": true,
+    "log_comparisons": true,
+    "run_factuality_checks": true,
+    "auto_battle_evaluation": true,
+    "experiment_tags": ["evolutionary", "blog", "generation"]
   }
 }

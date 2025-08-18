@@ -22,6 +22,7 @@ from evaluator import BlogEvaluator, EvaluationScore
 from data_verifier import DataVerifier
 from content_retriever import ContentRetriever
 from scqa_planner import SCQAPlanner, SCQAStructure
+from braintrust_integration import BraintrustTracker, BraintrustEvaluator
 
 
 class BlogGenerator:
@@ -56,10 +57,15 @@ class BlogGenerator:
         self.scqa_planner = SCQAPlanner(claude_client=self.models.get('claude'))
         
         # Load SCQA settings
-        config_path = Path.home() / "Documents" / "evo_blog" / "config" / "global_settings.json"
+        config_path = Path.home() / "Documents" / "coding" / "evo_blog" / "config" / "global_settings.json"
         with open(config_path, 'r') as f:
             self.global_config = json.load(f)
         self.scqa_config = self.global_config.get('scqa_planning', {})
+        
+        # Initialize Braintrust tracker
+        braintrust_config = self.global_config.get('braintrust', {'enabled': True})
+        self.braintrust_tracker = BraintrustTracker() if braintrust_config.get('enabled', True) else None
+        self.braintrust_evaluator = BraintrustEvaluator() if braintrust_config.get('enabled', True) else None
         
         # Generation statistics
         self.stats = {
@@ -75,7 +81,7 @@ class BlogGenerator:
         models = {}
         
         # Load API keys
-        config_path = Path.home() / "Documents" / "evo_blog" / "config" / "model_configs.json"
+        config_path = Path.home() / "Documents" / "coding" / "evo_blog" / "config" / "model_configs.json"
         with open(config_path, 'r') as f:
             api_keys = json.load(f)
         
@@ -231,6 +237,19 @@ class BlogGenerator:
             with open(filepath, 'w') as f:
                 f.write(response.content)
             
+            # Log to Braintrust
+            if self.braintrust_tracker:
+                self.braintrust_tracker.log_generation(
+                    model=model_name,
+                    strategy=strategy_name,
+                    cycle=cycle,
+                    prompt=generation_prompt,
+                    output=response.content,
+                    cost=response.cost,
+                    tokens=response.tokens_used,
+                    latency=response.latency_seconds
+                )
+            
             return variation
             
         except Exception as e:
@@ -346,6 +365,17 @@ Final polish:
             var['grade'] = evaluation.overall_grade
             var['ready'] = evaluation.ready_to_ship
             
+            # Log evaluation to Braintrust
+            if self.braintrust_tracker:
+                self.braintrust_tracker.log_evaluation(
+                    model=var['model'],
+                    strategy=var['strategy'],
+                    cycle=var['cycle'],
+                    content=var['content'],
+                    evaluation=evaluation,
+                    input_prompt=""  # We'll add this in a future update
+                )
+            
             evaluated.append(var)
             
             if evaluation.ready_to_ship:
@@ -416,6 +446,17 @@ Key improvements needed:
         print(f"\n{'='*60}")
         print(f"Generating Blog Post: {title or topic[:50]}")
         print(f"{'='*60}")
+        
+        # Start Braintrust experiment
+        experiment_id = None
+        start_time = time.time()
+        if self.braintrust_tracker:
+            experiment_metadata = {
+                "max_cycles": max_cycles,
+                "enable_scqa": enable_scqa,
+                "models_available": list(self.models.keys())
+            }
+            experiment_id = self.braintrust_tracker.start_experiment(topic, title, experiment_metadata)
         
         # Determine if SCQA should be enabled
         use_scqa = enable_scqa if enable_scqa is not None else self.scqa_config.get('enabled', True)
@@ -540,6 +581,27 @@ Key improvements needed:
             print(f"Ready to Ship: {'✅ Yes' if best_post['ready'] else '❌ No'}")
             print(f"Total Cost: ${self.stats['total_cost']:.2f}")
             print(f"Output: {self.output_dir}")
+            
+            # Log best post selection and finish Braintrust experiment
+            if self.braintrust_tracker:
+                self.braintrust_tracker.log_best_post_selection(
+                    best_post=best_post,
+                    all_variations=all_variations
+                )
+                
+                # Prepare final stats
+                end_time = time.time()
+                final_stats = {
+                    **self.stats,
+                    "duration_seconds": end_time - start_time,
+                    "experiment_id": experiment_id,
+                    "final_best_score": best_post['score'],
+                    "final_ready": best_post['ready']
+                }
+                
+                experiment_url = self.braintrust_tracker.finish_experiment(final_stats)
+                if experiment_url and experiment_url not in ["disabled", "error"]:
+                    print(f"📊 Braintrust Experiment: {experiment_url}")
             
             return best_post
         
@@ -741,7 +803,7 @@ def main():
         from models import ClaudeClient
         
         # Initialize Claude for SCQA planning
-        config_path = Path.home() / "Documents" / "evo_blog" / "config" / "model_configs.json"
+        config_path = Path.home() / "Documents" / "coding" / "evo_blog" / "config" / "model_configs.json"
         with open(config_path, 'r') as f:
             api_keys = json.load(f)
         
