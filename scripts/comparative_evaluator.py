@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass
 import difflib
+import google.generativeai as genai
 
 # Add parent directory to path
 sys.path.insert(0, str(Path(__file__).parent))
@@ -35,19 +36,108 @@ class ComparisonScore:
     voice_authenticity: float
     improvement_areas: List[str]
     specific_feedback: Dict[str, str]
+    llm_judge_score: Optional[float] = None
+    llm_judge_feedback: Optional[str] = None
 
 
 class ComparativeEvaluator:
     """Evaluates AI-generated posts against published posts"""
     
-    def __init__(self, braintrust_tracker: Optional[BraintrustTracker] = None):
+    def __init__(self, braintrust_tracker: Optional[BraintrustTracker] = None, use_llm_judge: bool = False):
         self.braintrust_tracker = braintrust_tracker
+        self.use_llm_judge = use_llm_judge
         self.output_dir = Path("/Users/tomasztunguz/Documents/coding/evo_blog/iterative_improvements")
         self.output_dir.mkdir(exist_ok=True)
         
         # Initialize autoevals
         self.battle_evaluator = Battle()
         self.factuality_evaluator = Factuality()
+        
+        # Initialize Gemini for LLM-as-judge if enabled
+        if self.use_llm_judge:
+            self._init_gemini()
+    
+    def _init_gemini(self):
+        """Initialize Gemini 2.5 Pro for LLM-as-judge evaluation"""
+        try:
+            # Try to get API key from environment
+            api_key = os.getenv('GOOGLE_API_KEY')
+            if not api_key:
+                # Try loading from config
+                config_path = Path(__file__).parent.parent / "config" / "model_configs.json"
+                if config_path.exists():
+                    with open(config_path) as f:
+                        config = json.load(f)
+                        api_key = config.get('google_api_key')
+            
+            if api_key:
+                genai.configure(api_key=api_key)
+                self.gemini_model = genai.GenerativeModel('gemini-2.0-flash-exp')
+                print("✅ Gemini 2.5 Pro initialized for LLM-as-judge evaluation")
+            else:
+                print("⚠️ Google API key not found. LLM-as-judge evaluation disabled.")
+                self.use_llm_judge = False
+        except Exception as e:
+            print(f"⚠️ Failed to initialize Gemini: {e}. LLM-as-judge evaluation disabled.")
+            self.use_llm_judge = False
+    
+    def llm_judge_evaluation(self, ai_content: str, published_content: str, topic: str = "") -> Tuple[float, str]:
+        """Use Gemini 2.5 Pro as judge to compare AI vs published content"""
+        
+        if not self.use_llm_judge or not hasattr(self, 'gemini_model'):
+            return 0.0, "LLM judge not available"
+        
+        prompt = f"""You are an expert blog post evaluator comparing AI-generated content with published content from Tom Tunguz, a renowned VC and technology writer.
+
+**Task**: Evaluate how well the AI-generated post matches the style, quality, and characteristics of the published reference post.
+
+**Published Reference Post** (Tom Tunguz's actual writing):
+{published_content}
+
+**AI-Generated Post** (to be evaluated):
+{ai_content}
+
+**Evaluation Criteria** (score each 0-100):
+
+1. **Voice & Style Match** (25%): Does the AI capture Tom's analytical, data-driven voice?
+2. **Structure & Flow** (20%): Does it follow Tom's paragraph structure and logical flow?
+3. **Content Depth** (20%): Is the insight depth comparable to the reference?
+4. **Data Integration** (15%): Does it use statistics and examples like Tom does?
+5. **Hook Effectiveness** (10%): Is the opening as engaging as Tom's style?
+6. **Conclusion Impact** (10%): Does it end with forward-looking insight like Tom?
+
+**Output Format**:
+Score: [0-100 overall score]
+
+**Detailed Analysis**:
+- Voice Match: [score]/100 - [brief explanation]
+- Structure: [score]/100 - [brief explanation] 
+- Content Depth: [score]/100 - [brief explanation]
+- Data Usage: [score]/100 - [brief explanation]
+- Hook: [score]/100 - [brief explanation]
+- Conclusion: [score]/100 - [brief explanation]
+
+**Key Strengths**: [2-3 things the AI did well]
+**Key Weaknesses**: [2-3 areas needing improvement]
+**Overall Assessment**: [1-2 sentences on overall quality]
+
+Be precise and constructive in your feedback. Focus on actionable insights."""
+        
+        try:
+            response = self.gemini_model.generate_content(prompt)
+            full_response = response.text
+            
+            # Extract score from response
+            score_match = re.search(r'Score:\s*(\d+(?:\.\d+)?)', full_response)
+            score = float(score_match.group(1)) if score_match else 0.0
+            
+            # Normalize to 0-1 scale
+            normalized_score = score / 100.0
+            
+            return normalized_score, full_response
+            
+        except Exception as e:
+            return 0.0, f"LLM judge evaluation failed: {str(e)}"
     
     def structural_comparison(self, ai_content: str, published_content: str) -> Dict[str, float]:
         """Compare structural elements between AI and published posts"""
@@ -285,6 +375,15 @@ class ComparativeEvaluator:
         # Data usage analysis
         data_scores = self.data_usage_comparison(ai_content, published_post.content)
         
+        # LLM-as-judge evaluation if enabled
+        llm_judge_score = None
+        llm_judge_feedback = None
+        if self.use_llm_judge:
+            print("🤖 Running LLM-as-judge evaluation with Gemini 2.5 Pro...")
+            llm_judge_score, llm_judge_feedback = self.llm_judge_evaluation(
+                ai_content, published_post.content, topic
+            )
+        
         # Calculate overall scores
         structural_match = structural_scores["overall"]
         style_similarity = style_scores["overall"]
@@ -295,12 +394,23 @@ class ComparativeEvaluator:
         voice_authenticity = style_scores["tone_match"]
         
         # Overall similarity (weighted average)
-        overall_similarity = (
-            structural_match * 0.25 +
-            style_similarity * 0.30 +
-            content_depth * 0.25 +
-            data_usage_match * 0.20
-        )
+        if self.use_llm_judge and llm_judge_score is not None:
+            # Use LLM judge score as primary evaluation with traditional metrics as secondary
+            overall_similarity = (
+                llm_judge_score * 0.60 +  # LLM judge gets 60% weight
+                structural_match * 0.10 +
+                style_similarity * 0.15 +
+                content_depth * 0.10 +
+                data_usage_match * 0.05
+            )
+        else:
+            # Traditional weighted average
+            overall_similarity = (
+                structural_match * 0.25 +
+                style_similarity * 0.30 +
+                content_depth * 0.25 +
+                data_usage_match * 0.20
+            )
         
         # Identify improvement areas
         improvement_areas = []
@@ -336,7 +446,9 @@ class ComparativeEvaluator:
             conclusion_strength=conclusion_strength,
             voice_authenticity=voice_authenticity,
             improvement_areas=improvement_areas,
-            specific_feedback=specific_feedback
+            specific_feedback=specific_feedback,
+            llm_judge_score=llm_judge_score,
+            llm_judge_feedback=llm_judge_feedback
         )
         
         # Log to Braintrust

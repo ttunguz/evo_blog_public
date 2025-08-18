@@ -1,0 +1,81 @@
+{
+  "iteration": 2,
+  "timestamp": "20250818_141613",
+  "overall_improvement": 0.02838393505818282,
+  "best_performing_prompt": "comprehensive",
+  "worst_performing_areas": [
+    "hook_effectiveness",
+    "conclusion_strength",
+    "structural_match"
+  ],
+  "confidence_score": 0.6648698372138329,
+  "optimization_recommendations": [],
+  "performance_trends": {
+    "hook_effectiveness": [
+      0.3064453420040563,
+      0.29576996521857735
+    ],
+    "conclusion_strength": [
+      0.19435303017289424,
+      0.33242812460888205
+    ],
+    "structural_match": [
+      0.5445290743573741,
+      0.5882144334732051
+    ],
+    "data_usage_match": [
+      0.3333333333333333,
+      0.6388888888888888
+    ],
+    "overall_similarity": [
+      0.7196758896993941,
+      0.7480598247575769
+    ],
+    "voice_authenticity": [
+      0.8333333333333334,
+      0.8888888888888888
+    ],
+    "style_similarity": [
+      0.7208516277894577,
+      0.9018537596662597
+    ],
+    "content_depth": [
+      0.9642857142857143,
+      0.9801587301587301
+    ]
+  },
+  "performance_history": [
+    {
+      "iteration": 1,
+      "timestamp": "2025-08-18T14:12:54.548882",
+      "conclusion_strength": 0.19435303017289424,
+      "hook_effectiveness": 0.3064453420040563,
+      "data_usage_match": 0.3333333333333333,
+      "structural_match": 0.5445290743573741,
+      "overall_similarity": 0.7196758896993941,
+      "style_similarity": 0.7208516277894577,
+      "voice_authenticity": 0.8333333333333334,
+      "content_depth": 0.9642857142857143
+    },
+    {
+      "iteration": 2,
+      "timestamp": "2025-08-18T14:16:13.576403",
+      "hook_effectiveness": 0.29576996521857735,
+      "conclusion_strength": 0.33242812460888205,
+      "structural_match": 0.5882144334732051,
+      "data_usage_match": 0.6388888888888888,
+      "overall_similarity": 0.7480598247575769,
+      "voice_authenticity": 0.8888888888888888,
+      "style_similarity": 0.9018537596662597,
+      "content_depth": 0.9801587301587301,
+      "hook_effectiveness_improvement": -0.010675376785478974,
+      "conclusion_strength_improvement": 0.1380750944359878,
+      "structural_match_improvement": 0.043685359115831046,
+      "data_usage_match_improvement": 0.3055555555555555,
+      "overall_similarity_improvement": 0.02838393505818282,
+      "voice_authenticity_improvement": 0.05555555555555547,
+      "style_similarity_improvement": 0.18100213187680203,
+      "content_depth_improvement": 0.015873015873015817
+    }
+  ]
+}

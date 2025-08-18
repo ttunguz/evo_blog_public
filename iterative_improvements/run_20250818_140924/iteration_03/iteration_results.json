@@ -1,0 +1,72 @@
+{
+  "iteration": 3,
+  "timestamp": "2025-08-18T14:19:39.614654",
+  "prompt_variations": [
+    {
+      "name": "voice_enhanced",
+      "version": "v3.3",
+      "expected_improvement": 0.18
+    },
+    {
+      "name": "topic_optimized",
+      "version": "v3.4",
+      "expected_improvement": 0.1
+    },
+    {
+      "name": "comprehensive",
+      "version": "v3.5",
+      "expected_improvement": 0.25
+    }
+  ],
+  "comparison_results": [
+    {
+      "overall_similarity": 0.7074747550375684,
+      "structural_match": 0.5239783196064527,
+      "style_similarity": 0.7094017094017094,
+      "content_depth": 1.0,
+      "improvement_areas": [
+        "structure_flow",
+        "data_integration",
+        "opening_hook",
+        "conclusion_impact"
+      ]
+    },
+    {
+      "overall_similarity": 0.7226470031256477,
+      "structural_match": 0.6456183829048279,
+      "style_similarity": 0.705952380952381,
+      "content_depth": 0.9519230769230769,
+      "improvement_areas": [
+        "structure_flow",
+        "data_integration",
+        "opening_hook",
+        "conclusion_impact"
+      ]
+    },
+    {
+      "overall_similarity": 0.6334287258204785,
+      "structural_match": 0.6714084703259962,
+      "style_similarity": 0.49049062049062053,
+      "content_depth": 0.44047619047619047,
+      "improvement_areas": [
+        "structure_flow",
+        "voice_authenticity",
+        "insight_depth",
+        "data_integration",
+        "opening_hook",
+        "conclusion_impact"
+      ]
+    }
+  ],
+  "best_score_this_iteration": 0.7226470031256477,
+  "best_overall_score": 0.775663123808662,
+  "feedback_summary": {
+    "overall_improvement": -0.060209663429678706,
+    "confidence_score": 0.4913578151390298,
+    "worst_areas": [
+      "conclusion_strength",
+      "hook_effectiveness",
+      "data_usage_match"
+    ]
+  }
+}

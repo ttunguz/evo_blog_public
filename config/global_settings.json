@@ -2,16 +2,24 @@
   "author": "Tomasz Tunguz",
   "blog_url": "https://tomtunguz.com",
   "writing_style": {
-    "target_word_count": 750,
-    "min_word_count": 500,
-    "max_word_count": 900,
+    "target_word_count": 500,
+    "min_word_count": 450,
+    "max_word_count": 550,
     "paragraphs": {
-      "sentences_per_paragraph": [2, 4],
-      "prefer_short_paragraphs": true
+      "sentences_per_paragraph": [2, 2],
+      "prefer_short_paragraphs": true,
+      "max_sentences_per_paragraph": 2
     },
-    "tone": ["analytical", "conversational", "data-driven"],
+    "tone": ["analytical", "contrarian", "data-driven", "business-focused"],
     "pronouns": "we",
-    "include_personal_anecdotes": true
+    "include_personal_anecdotes": false,
+    "voice_characteristics": [
+      "analytical yet accessible",
+      "contrarian but evidence-based", 
+      "forward-looking with practical insights",
+      "confident without being prescriptive",
+      "business-impact focused"
+    ]
   },
   "content_preferences": {
     "data_points_per_post": [2, 4],

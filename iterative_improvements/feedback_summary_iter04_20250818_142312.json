@@ -1,0 +1,137 @@
+{
+  "iteration": 4,
+  "timestamp": "20250818_142312",
+  "overall_improvement": 0.04268900074623028,
+  "best_performing_prompt": "comprehensive",
+  "worst_performing_areas": [
+    "conclusion_strength",
+    "hook_effectiveness",
+    "structural_match"
+  ],
+  "confidence_score": 0.5560693247045592,
+  "optimization_recommendations": [],
+  "performance_trends": {
+    "conclusion_strength": [
+      0.19435303017289424,
+      0.33242812460888205,
+      0.22384778673511915,
+      0.19002982665773363
+    ],
+    "hook_effectiveness": [
+      0.3064453420040563,
+      0.29576996521857735,
+      0.36303623260145,
+      0.25326556064260985
+    ],
+    "structural_match": [
+      0.5445290743573741,
+      0.5882144334732051,
+      0.6136683909457589,
+      0.5355061039634715
+    ],
+    "data_usage_match": [
+      0.3333333333333333,
+      0.6388888888888888,
+      0.3888888888888889,
+      0.5833333333333334
+    ],
+    "style_similarity": [
+      0.7208516277894577,
+      0.9018537596662597,
+      0.6352815702815703,
+      0.7159554238836217
+    ],
+    "voice_authenticity": [
+      0.8333333333333334,
+      0.8888888888888888,
+      0.6919191919191919,
+      0.7222222222222222
+    ],
+    "overall_similarity": [
+      0.7196758896993941,
+      0.7480598247575769,
+      0.6878501613278982,
+      0.7305391620741285
+    ],
+    "content_depth": [
+      0.9642857142857143,
+      0.9801587301587301,
+      0.7974664224664224,
+      0.9642857142857143
+    ]
+  },
+  "performance_history": [
+    {
+      "iteration": 1,
+      "timestamp": "2025-08-18T14:12:54.548882",
+      "conclusion_strength": 0.19435303017289424,
+      "hook_effectiveness": 0.3064453420040563,
+      "data_usage_match": 0.3333333333333333,
+      "structural_match": 0.5445290743573741,
+      "overall_similarity": 0.7196758896993941,
+      "style_similarity": 0.7208516277894577,
+      "voice_authenticity": 0.8333333333333334,
+      "content_depth": 0.9642857142857143
+    },
+    {
+      "iteration": 2,
+      "timestamp": "2025-08-18T14:16:13.576403",
+      "hook_effectiveness": 0.29576996521857735,
+      "conclusion_strength": 0.33242812460888205,
+      "structural_match": 0.5882144334732051,
+      "data_usage_match": 0.6388888888888888,
+      "overall_similarity": 0.7480598247575769,
+      "voice_authenticity": 0.8888888888888888,
+      "style_similarity": 0.9018537596662597,
+      "content_depth": 0.9801587301587301,
+      "hook_effectiveness_improvement": -0.010675376785478974,
+      "conclusion_strength_improvement": 0.1380750944359878,
+      "structural_match_improvement": 0.043685359115831046,
+      "data_usage_match_improvement": 0.3055555555555555,
+      "overall_similarity_improvement": 0.02838393505818282,
+      "voice_authenticity_improvement": 0.05555555555555547,
+      "style_similarity_improvement": 0.18100213187680203,
+      "content_depth_improvement": 0.015873015873015817
+    },
+    {
+      "iteration": 3,
+      "timestamp": "2025-08-18T14:19:39.612867",
+      "conclusion_strength": 0.22384778673511915,
+      "hook_effectiveness": 0.36303623260145,
+      "data_usage_match": 0.3888888888888889,
+      "structural_match": 0.6136683909457589,
+      "style_similarity": 0.6352815702815703,
+      "overall_similarity": 0.6878501613278982,
+      "voice_authenticity": 0.6919191919191919,
+      "content_depth": 0.7974664224664224,
+      "conclusion_strength_improvement": -0.1085803378737629,
+      "hook_effectiveness_improvement": 0.06726626738287267,
+      "data_usage_match_improvement": -0.24999999999999994,
+      "structural_match_improvement": 0.025453957472553745,
+      "style_similarity_improvement": -0.2665721893846894,
+      "overall_similarity_improvement": -0.060209663429678706,
+      "voice_authenticity_improvement": -0.1969696969696969,
+      "content_depth_improvement": -0.1826923076923077
+    },
+    {
+      "iteration": 4,
+      "timestamp": "2025-08-18T14:23:12.636926",
+      "conclusion_strength": 0.19002982665773363,
+      "hook_effectiveness": 0.25326556064260985,
+      "structural_match": 0.5355061039634715,
+      "data_usage_match": 0.5833333333333334,
+      "style_similarity": 0.7159554238836217,
+      "voice_authenticity": 0.7222222222222222,
+      "overall_similarity": 0.7305391620741285,
+      "content_depth": 0.9642857142857143,
+      "conclusion_strength_improvement": -0.03381796007738552,
+      "hook_effectiveness_improvement": -0.10977067195884016,
+      "structural_match_improvement": -0.07816228698228733,
+      "data_usage_match_improvement": 0.19444444444444448,
+      "style_similarity_improvement": 0.08067385360205137,
+      "voice_authenticity_improvement": 0.030303030303030276,
+      "overall_similarity_improvement": 0.04268900074623028,
+      "content_depth_improvement": 0.1668192918192919
+    }
+  ]
+}

@@ -30,8 +30,9 @@ from generate_blog_post import BlogGenerator
 class IterativeImprover:
     """Main orchestrator for iterative prompt improvement"""
     
-    def __init__(self, max_iterations: int = 20):
+    def __init__(self, max_iterations: int = 20, use_llm_judge: bool = False):
         self.max_iterations = max_iterations
+        self.use_llm_judge = use_llm_judge
         self.output_dir = Path("/Users/tomasztunguz/Documents/coding/evo_blog/iterative_improvements")
         self.output_dir.mkdir(exist_ok=True)
         
@@ -44,7 +45,7 @@ class IterativeImprover:
         self.braintrust_tracker = BraintrustTracker("iterative-improvement")
         self.post_analyzer = PostAnalyzer(self.braintrust_tracker)
         self.prompt_generator = PromptGenerator(self.braintrust_tracker)
-        self.comparative_evaluator = ComparativeEvaluator(self.braintrust_tracker)
+        self.comparative_evaluator = ComparativeEvaluator(self.braintrust_tracker, use_llm_judge=use_llm_judge)
         self.feedback_manager = FeedbackManager(self.braintrust_tracker)
         
         # Initialize blog generator for AI post generation
@@ -573,14 +574,18 @@ def main():
     """Main function to run iterative improvement"""
     
     parser = argparse.ArgumentParser(description="Run iterative prompt improvement")
-    parser.add_argument("--iterations", type=int, default=20, help="Number of iterations to run")
+    parser.add_argument("--iterations", type=int, default=10, help="Number of iterations to run")
     parser.add_argument("--convergence-threshold", type=float, default=0.02, help="Convergence threshold")
     parser.add_argument("--max-stagnation", type=int, default=3, help="Max stagnation iterations")
+    parser.add_argument("--llm-judge", action="store_true", help="Use Gemini 2.5 Pro as LLM-as-judge for evaluation")
     
     args = parser.parse_args()
     
+    if args.llm_judge:
+        print("🤖 Using Gemini 2.5 Pro as LLM-as-judge for evaluation")
+    
     # Initialize and run
-    improver = IterativeImprover(max_iterations=args.iterations)
+    improver = IterativeImprover(max_iterations=args.iterations, use_llm_judge=args.llm_judge)
     improver.convergence_threshold = args.convergence_threshold
     improver.max_stagnation = args.max_stagnation
     
