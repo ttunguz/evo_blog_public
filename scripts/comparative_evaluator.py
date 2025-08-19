@@ -46,7 +46,7 @@ class ComparativeEvaluator:
     def __init__(self, braintrust_tracker: Optional[BraintrustTracker] = None, use_llm_judge: bool = False):
         self.braintrust_tracker = braintrust_tracker
         self.use_llm_judge = use_llm_judge
-        self.output_dir = Path("/Users/tomasztunguz/Documents/coding/evo_blog/iterative_improvements")
+        self.output_dir = Path(".//iterative_improvements")
         self.output_dir.mkdir(exist_ok=True)
         
         # Initialize autoevals

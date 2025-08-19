@@ -51,7 +51,7 @@ class FeedbackManager:
     
     def __init__(self, braintrust_tracker: Optional[BraintrustTracker] = None):
         self.braintrust_tracker = braintrust_tracker
-        self.output_dir = Path("/Users/tomasztunguz/Documents/coding/evo_blog/iterative_improvements")
+        self.output_dir = Path(".//iterative_improvements")
         self.output_dir.mkdir(exist_ok=True)
         
         # Historical performance tracking

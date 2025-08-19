@@ -17,7 +17,7 @@ from models import ClaudeClient, OpenAIClient, GeminiClient, LocalClient
 
 def load_api_keys():
     """Load API keys from config file or environment"""
-    config_path = Path.home() / "Documents" / "evo_blog" / "config" / "model_configs.json"
+    config_path = Path(os.getenv("CONFIG_DIR", "./config")) / "config" / "model_configs.json"
     
     if config_path.exists():
         with open(config_path, 'r') as f:

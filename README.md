@@ -62,30 +62,96 @@ graph TD
 
 ### Prerequisites
 - Python 3.13+
-- uv package manager
-- Braintrust API key
-- OpenAI API key (optional for GPT-4)
+- uv package manager (recommended) or pip
+- API keys for:
+  - Anthropic Claude (required)
+  - OpenAI GPT-4 (optional)
+  - Google Gemini (optional)  
+  - Braintrust (optional for experiment tracking)
 
-### Setup
+### Automated Setup (Recommended)
+
 ```bash
-# Clone repository
+# 1. Clone the repository
 git clone <repository-url>
-cd evo_blog
+cd evo_blog_public
 
-# Create virtual environment with uv
+# 2. Run automated setup
+python setup_evo_blog.py
+
+# 3. Follow the prompts to configure your API keys
+# The script will:
+# - Create virtual environment (.venv)
+# - Install all dependencies
+# - Set up configuration files
+# - Test the installation
+```
+
+### Manual Setup
+
+```bash
+# 1. Clone the repository
+git clone <repository-url>
+cd evo_blog_public
+
+# 2. Create virtual environment
 uv venv --python=3.13 .venv
-source .venv/bin/activate
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
-# Install dependencies
+# 3. Install dependencies
 uv pip install -r requirements.txt
 
-# Install additional dependencies for iterative improvement
-uv pip install lancedb sentence-transformers
+# 4. Configure environment variables
+cp .env.example .env
+# Edit .env with your API keys
 
-# Set environment variables
-export BRAINTRUST_API_KEY="your-api-key"
-export OPENAI_API_KEY="your-openai-key" # optional
+# 5. Setup configuration files
+cp config/model_configs.json.example config/model_configs.json
+# Edit config/model_configs.json with your API keys (alternative to .env)
+
+# 6. Test installation
+python scripts/generate_blog_post.py "Test topic: AI in startups" --cycles 1
 ```
+
+### Environment Configuration
+
+The system supports two methods for API key configuration:
+
+#### Method 1: Environment Variables (.env file)
+```bash
+# Copy the example file
+cp .env.example .env
+
+# Edit .env with your keys:
+ANTHROPIC_API_KEY=your_claude_api_key_here
+OPENAI_API_KEY=your_openai_api_key_here  
+GOOGLE_API_KEY=your_google_api_key_here
+BRAINTRUST_API_KEY=your_braintrust_api_key_here
+```
+
+#### Method 2: Configuration File
+```bash
+# Copy the example config
+cp config/model_configs.json.example config/model_configs.json
+
+# Edit config/model_configs.json:
+{
+  "anthropic_api_key": "your_claude_api_key_here",
+  "openai_api_key": "your_openai_api_key_here",
+  "google_api_key": "your_google_api_key_here"
+}
+```
+
+### Minimum Configuration
+
+For basic functionality, you only need:
+- **Anthropic Claude API key** (required for generation)
+- Python 3.13+ with uv/pip
+
+Optional components:
+- OpenAI API key (for GPT-4 generation)
+- Google API key (for Gemini generation and LLM-as-judge evaluation)
+- Braintrust API key (for experiment tracking and advanced evaluation)
 
 ## Usage
 

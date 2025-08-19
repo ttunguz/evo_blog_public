@@ -38,9 +38,9 @@ uv pip install -r requirements.txt
 Create `config/model_configs.json`:
 ```json
 {
-  "anthropic_api_key": "your-claude-key",
-  "openai_api_key": "your-gpt4-key", 
-  "google_api_key": "your-gemini-key"
+  "anthropic_api_key": os.getenv("ANTHROPIC_API_KEY"),
+  "openai_api_key": os.getenv("OPENAI_API_KEY"), 
+  "google_api_key": os.getenv("GOOGLE_API_KEY")
 }
 ```
 

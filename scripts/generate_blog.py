@@ -20,7 +20,7 @@ from typing import Dict, List, Any
 class BlogGenerator:
     def __init__(self, config_path: Path = None):
         """Initialize the blog generator with configuration"""
-        self.base_dir = Path.home() / "Documents" / "evo_blog"
+        self.base_dir = Path(os.getenv("CONFIG_DIR", "./config"))
         self.config = self.load_config(config_path)
         self.session_id = None
         self.session_dir = None

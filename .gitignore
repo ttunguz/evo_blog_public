@@ -3,12 +3,21 @@ config/model_configs.json
 .env
 *.key
 
-# Generated content
-generations/*/raw_outputs/
-generations/*/scores/
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+evo_blog_env/
 
-# Cache
+# Generated content
+generations/
+iterative_improvements/
+
+# Python cache
 __pycache__/
+*.py[cod]
+*$py.class
 *.pyc
 .cache/
 
@@ -19,3 +28,18 @@ __pycache__/
 .vscode/
 .idea/
 *.swp
+*.swo
+*~
+
+# Security scanning
+gitleaks-report.json
+
+# Personal/sensitive paths (should not be in public repos)
+**/Users/*/
+
+# Logs
+*.log
+
+# Testing
+.pytest_cache/
+.coverage

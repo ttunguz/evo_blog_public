@@ -74,9 +74,9 @@ pip3 install -r requirements.txt
 ```bash
 # Create config/model_configs.json with:
 {
-  "anthropic_api_key": "your-key",
-  "openai_api_key": "your-key", 
-  "google_api_key": "your-key"
+  "anthropic_api_key": os.getenv("ANTHROPIC_API_KEY"),
+  "openai_api_key": os.getenv("OPENAI_API_KEY"), 
+  "google_api_key": os.getenv("GOOGLE_API_KEY")
 }
 ```
 

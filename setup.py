@@ -12,7 +12,7 @@ from pathlib import Path
 
 def setup_directories():
     """Create the complete directory structure"""
-    base_dir = Path.home() / "Documents" / "evo_blog"
+    base_dir = Path(os.getenv("CONFIG_DIR", "./config"))
     
     # Main directories
     directories = [

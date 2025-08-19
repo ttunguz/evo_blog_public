@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import List, Dict, Optional
 
 # Add the h48 content directory to path for imports
-sys.path.insert(0, "/Users/tomasztunguz/Documents/coding/h48/content")
+sys.path.insert(0, "./content")
 
 try:
     # First try direct import
@@ -20,7 +20,7 @@ except ImportError:
     try:
         # Try importing with full path
         import importlib.util
-        spec = importlib.util.spec_from_file_location("blog_indexer", "/Users/tomasztunguz/Documents/coding/h48/content/blog_indexer.py")
+        spec = importlib.util.spec_from_file_location("blog_indexer", "./content/blog_indexer.py")
         blog_indexer_module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(blog_indexer_module)
         ContentIndexer = blog_indexer_module.ContentIndexer

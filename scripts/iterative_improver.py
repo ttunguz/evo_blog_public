@@ -33,7 +33,7 @@ class IterativeImprover:
     def __init__(self, max_iterations: int = 20, use_llm_judge: bool = False):
         self.max_iterations = max_iterations
         self.use_llm_judge = use_llm_judge
-        self.output_dir = Path("/Users/tomasztunguz/Documents/coding/evo_blog/iterative_improvements")
+        self.output_dir = Path(".//iterative_improvements")
         self.output_dir.mkdir(exist_ok=True)
         
         # Create iteration tracking directory

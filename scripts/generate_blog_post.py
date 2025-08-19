@@ -36,7 +36,7 @@ class BlogGenerator:
             self.output_dir = Path(output_dir)
         else:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            self.output_dir = Path(f"/Users/tomasztunguz/Documents/evo_blog/generations/{timestamp}")
+            self.output_dir = Path(f".//generations/{timestamp}")
         
         self.output_dir.mkdir(parents=True, exist_ok=True)
         
@@ -57,7 +57,7 @@ class BlogGenerator:
         self.scqa_planner = SCQAPlanner(claude_client=self.models.get('claude'))
         
         # Load SCQA settings
-        config_path = Path.home() / "Documents" / "coding" / "evo_blog" / "config" / "global_settings.json"
+        config_path = Path("./") / "config" / "global_settings.json"
         with open(config_path, 'r') as f:
             self.global_config = json.load(f)
         self.scqa_config = self.global_config.get('scqa_planning', {})
@@ -81,7 +81,7 @@ class BlogGenerator:
         models = {}
         
         # Load API keys
-        config_path = Path.home() / "Documents" / "coding" / "evo_blog" / "config" / "model_configs.json"
+        config_path = Path("./") / "config" / "model_configs.json"
         with open(config_path, 'r') as f:
             api_keys = json.load(f)
         
@@ -649,7 +649,7 @@ date: "{today}"
 {content}"""
         
         # Define target path
-        h48_content_path = Path("/Users/tomasztunguz/Documents/coding/h48/content/post")
+        h48_content_path = Path("./content/post")
         target_file = h48_content_path / filename
         
         try:
@@ -751,7 +751,7 @@ Text to proofread:
             import sys
             
             # Path to the blog indexer
-            indexer_path = "/Users/tomasztunguz/Documents/coding/h48/content/blog_indexer.py"
+            indexer_path = "./content/blog_indexer.py"
             
             # Run the indexer update
             result = subprocess.run(
@@ -803,7 +803,7 @@ def main():
         from models import ClaudeClient
         
         # Initialize Claude for SCQA planning
-        config_path = Path.home() / "Documents" / "coding" / "evo_blog" / "config" / "model_configs.json"
+        config_path = Path("./") / "config" / "model_configs.json"
         with open(config_path, 'r') as f:
             api_keys = json.load(f)
         

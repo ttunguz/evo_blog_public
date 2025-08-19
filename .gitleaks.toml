@@ -1,0 +1,49 @@
+# Gitleaks configuration for evo_blog_public
+title = "EvoBlog Secrets Scanner Config"
+
+[allowlist]
+description = "Allowlist for false positives and expected patterns"
+paths = [
+    '''\.env\.example$''',  # Allow example env files
+    '''config/.*\.json\.example$''',  # Allow example config files
+    '''config/evaluation_weights\.json$''',  # Allow config values
+    '''config/global_settings\.json$''',  # Allow config values
+    '''\.venv.*''',  # Ignore any virtual environment directories
+]
+
+# Custom rules for API keys and sensitive data
+[[rules]]
+id = "anthropic-api-key"
+description = "Anthropic API Key"
+regex = '''sk-ant-[a-zA-Z0-9\-_]{95,}'''
+keywords = ["anthropic", "claude"]
+
+[[rules]]
+id = "openai-api-key"
+description = "OpenAI API Key"
+regex = '''sk-[a-zA-Z0-9]{20}T3BlbkFJ[a-zA-Z0-9]{20}'''
+keywords = ["openai", "gpt"]
+
+[[rules]]
+id = "google-api-key"
+description = "Google API Key"
+regex = '''AIza[0-9A-Za-z\-_]{35}'''
+keywords = ["google", "gemini"]
+
+[[rules]]
+id = "braintrust-api-key"
+description = "Braintrust API Key"
+regex = '''bt-[a-zA-Z0-9\-_]{40,}'''
+keywords = ["braintrust"]
+
+[[rules]]
+id = "personal-paths"
+description = "Personal file paths"
+regex = '''/Users/[a-zA-Z0-9]+/'''
+keywords = ["Users", "home"]
+
+[[rules]]
+id = "hardcoded-secrets"
+description = "Hardcoded secrets in configs"
+regex = '''["'][a-zA-Z0-9\-_]{20,}["']'''
+path = '''config/.*\.json$'''

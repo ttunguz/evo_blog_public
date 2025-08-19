@@ -1,0 +1,6 @@
+{
+  "anthropic_api_key": "your_anthropic_api_key_here",
+  "openai_api_key": "your_openai_api_key_here",
+  "google_api_key": "your_google_api_key_here",
+  "note": "Copy this file to model_configs.json and replace with your actual API keys"
+}

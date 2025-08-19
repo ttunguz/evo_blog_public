@@ -60,7 +60,7 @@ class PostAnalyzer:
         self.analysis: Optional[StyleAnalysis] = None
         
         # Create output directory
-        self.output_dir = Path("/Users/tomasztunguz/Documents/coding/evo_blog/iterative_improvements")
+        self.output_dir = Path(".//iterative_improvements")
         self.output_dir.mkdir(exist_ok=True)
         
         # Sample recent posts data (in production, this would scrape tomtunguz.com)
