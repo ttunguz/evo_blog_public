@@ -1,0 +1,40 @@
+{
+  "author": {
+    "name": "Your Name",
+    "description": "Configure the target writing style and voice characteristics"
+  },
+  "blog_info": {
+    "url": "https://yourblog.com",
+    "description": "Your blog URL for reference"
+  },
+  "voice_characteristics": [
+    "Data-driven analysis",
+    "Clear, direct communication",
+    "Business insights focus",
+    "Practical actionable advice",
+    "Industry expertise"
+  ],
+  "writing_style": {
+    "tone": "professional",
+    "target_word_count": [500, 750],
+    "sentences_per_paragraph": [2, 4],
+    "prefer_short_paragraphs": true,
+    "max_sentences_per_paragraph": 4,
+    "data_points_per_post": [2, 4],
+    "opening_hook_required": true,
+    "conclusion_style": "forward-looking"
+  },
+  "content_focus": {
+    "topics": ["technology", "business", "data analysis"],
+    "include_personal_anecdotes": false,
+    "analytical_depth": "high",
+    "business_context": true
+  },
+  "evaluation_criteria": {
+    "voice_authenticity_weight": 0.20,
+    "content_quality_weight": 0.40,
+    "writing_style_weight": 0.30,
+    "structure_weight": 0.20,
+    "data_usage_weight": 0.10
+  }
+}

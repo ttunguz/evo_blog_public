@@ -87,11 +87,11 @@ class ComparativeEvaluator:
         if not self.use_llm_judge or not hasattr(self, 'gemini_model'):
             return 0.0, "LLM judge not available"
         
-        prompt = f"""You are an expert blog post evaluator comparing AI-generated content with published content from Tom Tunguz, a renowned VC and technology writer.
+        prompt = f"""You are an expert blog post evaluator comparing AI-generated content with published reference content.
 
 **Task**: Evaluate how well the AI-generated post matches the style, quality, and characteristics of the published reference post.
 
-**Published Reference Post** (Tom Tunguz's actual writing):
+**Published Reference Post** (high-quality reference writing):
 {published_content}
 
 **AI-Generated Post** (to be evaluated):
@@ -99,12 +99,12 @@ class ComparativeEvaluator:
 
 **Evaluation Criteria** (score each 0-100):
 
-1. **Voice & Style Match** (25%): Does the AI capture Tom's analytical, data-driven voice?
-2. **Structure & Flow** (20%): Does it follow Tom's paragraph structure and logical flow?
+1. **Voice & Style Match** (25%): Does the AI capture the analytical, data-driven voice?
+2. **Structure & Flow** (20%): Does it follow the reference paragraph structure and logical flow?
 3. **Content Depth** (20%): Is the insight depth comparable to the reference?
-4. **Data Integration** (15%): Does it use statistics and examples like Tom does?
-5. **Hook Effectiveness** (10%): Is the opening as engaging as Tom's style?
-6. **Conclusion Impact** (10%): Does it end with forward-looking insight like Tom?
+4. **Data Integration** (15%): Does it use statistics and examples effectively?
+5. **Hook Effectiveness** (10%): Is the opening as engaging as the reference style?
+6. **Conclusion Impact** (10%): Does it end with forward-looking insights?
 
 **Output Format**:
 Score: [0-100 overall score]

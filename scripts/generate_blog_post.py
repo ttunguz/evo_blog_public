@@ -269,7 +269,7 @@ class BlogGenerator:
             context_str = ""
         
         style_guide = """
-Write in the exact style of Tom Tunguz with these CRITICAL requirements:
+Write professional business content with these CRITICAL requirements:
 
 FORMATTING REQUIREMENTS (ABSOLUTELY CRITICAL):
 - Approximately 500 words (acceptable range: 500-600 words)

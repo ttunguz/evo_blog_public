@@ -4,7 +4,7 @@ An AI-powered blog post generation system that uses multiple language models in 
 
 ## Overview
 
-This system generates blog posts in the style of Tom Tunguz by:
+This system generates high-quality blog posts by:
 1. **Multi-model Generation**: Using Claude, GPT-4, and local models in parallel
 2. **Braintrust Integration**: Tracking experiments and evaluating outputs
 3. **Iterative Improvement**: Automatically refining prompts based on comparative analysis
@@ -221,7 +221,7 @@ evo_blog/
 - **Opening Hook** (20%): First paragraph engagement
 - **Conclusion Impact** (15%): Final paragraph effectiveness
 - **Data Integration** (20%): Use of statistics and examples
-- **Voice Authenticity** (20%): Match to Tom Tunguz's style
+- **Voice Authenticity** (20%): Match to target writing style
 
 ### Performance Results
 - **Initial Score**: 78.6%
@@ -265,7 +265,7 @@ evo_blog/
   },
   "voice_authenticity": {
     "weight": 0.20,
-    "description": "Match to Tom Tunguz writing style"
+    "description": "Match to target writing style"
   }
 }
 ```
@@ -283,6 +283,6 @@ MIT License - see LICENSE file for details
 
 ## Acknowledgments
 
-- Tom Tunguz for the reference writing style
+- Contributors and the open source community
 - Braintrust for evaluation infrastructure
 - Anthropic Claude for content generation

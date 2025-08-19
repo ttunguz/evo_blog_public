@@ -19,7 +19,7 @@ User Prompt → Multiple Models → Evaluation → Refinement → Final Post
   Topic      Claude/GPT/Gemini   AP Grading   Improvement  Publishing
 ```
 
-The system generates blog posts that consistently score 85-95/100 with proper Tom Tunguz style characteristics.
+The system generates blog posts that consistently score 85-95/100 with configurable style characteristics.
 
 ## Quick Start
 
@@ -109,7 +109,7 @@ generations/20250813_152433/
 
 **Evaluation Criteria:**
 - **Content Quality** (40%): Insight depth, argument strength
-- **Writing Style** (30%): Tom Tunguz voice, clarity, flow
+- **Writing Style** (30%): Target voice, clarity, flow
 - **Structure** (20%): Hook, transitions, conclusion
 - **Data Usage** (10%): Specific examples, statistics
 
@@ -121,7 +121,7 @@ generations/20250813_152433/
 
 ## Style Guidelines
 
-Posts are optimized for Tom Tunguz's style:
+Posts are optimized for professional business writing:
 
 - **Length**: Exactly 500 words maximum
 - **Structure**: Short paragraphs (2-4 sentences)
@@ -285,4 +285,4 @@ For custom models, implement the `BaseModel` interface in `scripts/models/base.p
 
 ---
 
-*The Evolutionary Blog Post Generator consistently produces publication-ready content that matches Tom Tunguz's distinctive style and insights.*
+*The Evolutionary Blog Post Generator consistently produces publication-ready content with configurable style and voice characteristics.*
