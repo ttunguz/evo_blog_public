@@ -159,7 +159,7 @@ Optional components:
 ```bash
 python scripts/generate_blog_post.py \
   --topic "AI in Enterprise Software" \
-  --model claude-3-5-sonnet-20241022 \
+  --model claude-3-5-sonnet-latest \
   --style analytical
 ```
 
@@ -248,7 +248,7 @@ evo_blog/
 ### Model Settings
 ```json
 {
-  "claude-3-5-sonnet-20241022": {
+  "claude-3-5-sonnet-latest": {
     "temperature": 0.7,
     "max_tokens": 2000,
     "system_prompt": "optimized_prompt_v13.txt"

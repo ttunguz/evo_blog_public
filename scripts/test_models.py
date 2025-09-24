@@ -49,7 +49,7 @@ def test_claude():
         config = load_api_keys()
         client = ClaudeClient(
             api_key=config.get('anthropic_api_key'),
-            config={'model': 'claude-3-5-sonnet-20241022'}
+            config={'model': 'claude-3-5-sonnet-latest'}
         )
         
         prompt = "Write a one-paragraph summary about the importance of testing in software development."

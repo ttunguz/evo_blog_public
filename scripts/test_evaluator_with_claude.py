@@ -34,7 +34,7 @@ The transition won't be smooth. Customers need time to adjust budgets. Sales com
 The question isn't whether AI will change software pricing. It's whether your company will lead or follow that change."""
 
 # Initialize with Claude client
-config = {"model": "claude-3-5-sonnet-20241022"}
+config = {"model": "claude-3-5-sonnet-latest"}
 claude_client = ClaudeClient(config=config)
 evaluator = BlogEvaluator(claude_client=claude_client)
 
