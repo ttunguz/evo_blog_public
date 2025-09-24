@@ -7,9 +7,10 @@ An AI-powered system that generates high-quality blog posts using multiple langu
 This tool uses an evolutionary approach to blog post generation:
 
 1. **Parallel Generation**: Multiple AI models (Claude, GPT-4, Gemini) generate different variations simultaneously
-2. **AP-Grade Evaluation**: Posts are scored using AP English grading criteria  
+2. **AP-Grade Evaluation**: Posts are scored using AP English grading criteria
 3. **Iterative Refinement**: Best posts are refined through multiple cycles
-4. **Data Verification**: Claims are fact-checked and marked for verification
+4. **GEPA Optimization**: Advanced genetic evolution of generation components using GEPA framework
+5. **Data Verification**: Claims are fact-checked and marked for verification
 
 ## Architecture
 
@@ -17,6 +18,8 @@ This tool uses an evolutionary approach to blog post generation:
 User Prompt → Multiple Models → Evaluation → Refinement → Final Post
     ↓              ↓               ↓            ↓           ↓
   Topic      Claude/GPT/Gemini   AP Grading   Improvement  Publishing
+                    ↑                           ↑
+                GEPA Optimization ──────────────┘
 ```
 
 The system generates blog posts that consistently score 85-95/100 with configurable style characteristics.
@@ -67,6 +70,9 @@ python scripts/generate_blog_post.py "Your topic here"
 
 # With custom title and cycles
 python scripts/generate_blog_post.py "Your topic" --title "Post Title" --cycles 3
+
+# With GEPA optimization (advanced)
+python scripts/generate_blog_post.py "Your topic" --use_gepa --gepa_iterations 10
 ```
 
 ## Usage Examples
@@ -128,6 +134,47 @@ Posts are optimized for professional business writing:
 - **Content**: 2-3 specific data points, real company examples
 - **Tone**: Direct, practical insights for founders/VCs
 - **Format**: No H2 headers, compelling hook, forward-looking conclusion
+
+## GEPA Integration
+
+### Advanced Component Optimization
+
+The system now supports GEPA (Genetic Evolution Program Assistant) for optimizing blog generation components:
+
+```bash
+# Enable GEPA optimization
+python scripts/generate_blog_post.py "Your topic" --use_gepa --gepa_iterations 20
+```
+
+### GEPA Evaluation Criteria
+
+The system evaluates candidates on 5 key metrics:
+
+1. **Quality Score** (0-1.0): AP English grading converted to decimal
+2. **Fitness Score**: Composite metric combining all factors
+3. **Originality Score**: Uniqueness vs existing content database
+4. **Style Consistency**: Alignment with target writing style
+5. **Generation Speed**: Efficiency metric (inverse of generation time)
+
+### Optimized Components
+
+GEPA optimizes these text generation components:
+
+- **System Prompt**: Core AI instructions for content generation
+- **Style Guide**: Writing style and tone specifications
+- **Content Structure**: Organization and flow patterns
+
+### GEPA Requirements
+
+```bash
+# Install GEPA framework
+pip install gepa
+
+# Required dependencies already included
+# - numpy for metric aggregation
+# - asyncio for async generation
+# - vector database for originality checking
+```
 
 ## Braintrust Integration
 
@@ -241,9 +288,10 @@ Typical costs per blog post:
 - **3 cycles**: $0.10-0.25
 
 Cost breakdown by model:
-- Claude Sonnet 4: ~$0.04 per post
-- GPT-4.1: ~$0.06 per post  
+- Claude 3.5 Sonnet (latest): ~$0.04 per post
+- GPT-4.1: ~$0.06 per post
 - Gemini 2.5 Pro: ~$0.02 per post
+- GEPA optimization: +$0.02-0.10 per optimization run
 
 ## Best Practices
 
