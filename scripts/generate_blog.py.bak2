@@ -34,7 +34,7 @@ class BlogGenerator:
             config = json.load(f)
             
         # Load evaluation weights
-        weights_path = self.base_dir / "evaluation_weights.json"
+        weights_path = self.base_dir / "config" / "evaluation_weights.json"
         with open(weights_path, 'r') as f:
             config['evaluation'] = json.load(f)
             

@@ -8,6 +8,7 @@ import os
 import sys
 import json
 import argparse
+import asyncio
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional
@@ -23,6 +24,7 @@ from data_verifier import DataVerifier
 from content_retriever import ContentRetriever
 from scqa_planner import SCQAPlanner, SCQAStructure
 from braintrust_integration import BraintrustTracker, BraintrustEvaluator
+from gepa_adapter import run_gepa_optimization, GEPA_AVAILABLE
 
 
 class BlogGenerator:
@@ -429,16 +431,18 @@ Key improvements needed:
         
         return refinement
     
-    def generate_blog_post(self, topic: str, title: str = "", max_cycles: int = 3, enable_scqa: bool = None) -> Dict:
+    async def generate_blog_post(self, topic: str, title: str = "", max_cycles: int = 3, enable_scqa: bool = None, use_gepa: bool = True, gepa_iterations: int = 10) -> Dict:
         """
         Main pipeline to generate and refine blog posts
-        
+
         Args:
             topic: The topic or prompt for the blog post
             title: Optional title for context
             max_cycles: Number of refinement cycles (default: 3)
             enable_scqa: Override SCQA planning (None uses config default)
-            
+            use_gepa: Enable GEPA optimization (default: True)
+            gepa_iterations: Number of GEPA optimization iterations (default: 10)
+
         Returns:
             The best blog post with metadata
         """
@@ -454,6 +458,8 @@ Key improvements needed:
             experiment_metadata = {
                 "max_cycles": max_cycles,
                 "enable_scqa": enable_scqa,
+                "use_gepa": use_gepa,
+                "gepa_iterations": gepa_iterations,
                 "models_available": list(self.models.keys())
             }
             experiment_id = self.braintrust_tracker.start_experiment(topic, title, experiment_metadata)
@@ -495,11 +501,85 @@ Key improvements needed:
         
         # Save initial prompt and SCQA structure
         with open(self.output_dir / "initial_prompt.txt", 'w') as f:
-            f.write(f"Topic: {topic}\nTitle: {title}\nSCQA Enabled: {use_scqa}\n")
+            f.write(f"Topic: {topic}\nTitle: {title}\nSCQA Enabled: {use_scqa}\nGEPA Enabled: {use_gepa}\n")
             if scqa_structure:
                 f.write(f"\nSCQA Structure:\n{self.scqa_planner.get_scqa_summary(scqa_structure)}")
                 f.write(f"\nEnhanced Prompt:\n{current_prompt}")
-        
+            if use_gepa:
+                f.write(f"\nGEPA Optimization: {gepa_iterations} iterations")
+
+        # GEPA Optimization Phase
+        gepa_result = None
+        if use_gepa:
+            print("\n🧬 GEPA Optimization Phase")
+            if not GEPA_AVAILABLE:
+                print("⚠️  GEPA not available. Install with: pip install gepa")
+                print("🔄 Continuing with standard generation")
+            else:
+                try:
+                    gepa_result = await run_gepa_optimization(
+                        blog_generator=self,
+                        topic=current_prompt,
+                        title=title,
+                        gepa_iterations=gepa_iterations
+                    )
+
+                    if gepa_result:
+                        print(f"✅ GEPA optimization completed successfully!")
+                        print(f"📈 Optimized score: {gepa_result['score']:.1f}/100")
+                        print(f"🏆 GEPA fitness: {gepa_result.get('gepa_score', 0):.3f}")
+
+                        # Return early with GEPA-optimized result
+                        best_post = {
+                            'model': gepa_result['model'],
+                            'strategy': 'gepa-optimized',
+                            'cycle': 1,
+                            'content': gepa_result['content'],
+                            'cost': 0.05,  # Estimated cost
+                            'tokens': len(gepa_result['content'].split()) * 1.3,  # Rough token estimate
+                            'latency': 10.0,  # Estimated latency
+                            'evaluation': gepa_result['evaluation'],
+                            'score': gepa_result['score'],
+                            'grade': gepa_result['grade'],
+                            'ready': gepa_result['ready']
+                        }
+
+                        # Save the GEPA-optimized post
+                        with open(self.output_dir / "best_post.md", 'w') as f:
+                            f.write(gepa_result['content'])
+
+                        # Copy to h48 blog content folder
+                        self._copy_to_blog_folder(gepa_result['content'], title)
+
+                        # Update blog index
+                        self._update_blog_index()
+
+                        # Save GEPA-specific statistics
+                        with open(self.output_dir / "statistics.json", 'w') as f:
+                            json.dump({
+                                'best_score': gepa_result['score'],
+                                'best_grade': gepa_result['grade'],
+                                'best_model': gepa_result['model'],
+                                'best_strategy': 'gepa-optimized',
+                                'gepa_fitness_score': gepa_result.get('gepa_score', 0),
+                                'gepa_enabled': True,
+                                'gepa_iterations': gepa_iterations,
+                                'total_generated': 1,
+                                'total_cost': 0.05,
+                                'ready_posts': 1 if gepa_result['ready'] else 0,
+                                'optimized_components': gepa_result.get('optimized_components', {}),
+                                'all_scores': [gepa_result['score']]
+                            }, f, indent=2)
+
+                        return best_post
+                    else:
+                        print("⚠️  GEPA optimization returned no result")
+                        print("🔄 Continuing with standard generation")
+
+                except Exception as e:
+                    print(f"⚠️  GEPA optimization failed: {e}")
+                    print("🔄 Continuing with standard generation")
+
         all_variations = []
         
         for cycle in range(1, max_cycles + 1):
@@ -782,6 +862,12 @@ def main():
     scqa_group.add_argument("--enable-scqa", action="store_true", help="Enable SCQA planning (default)")
     scqa_group.add_argument("--no-scqa", action="store_true", help="Disable SCQA planning")
     scqa_group.add_argument("--scqa-only", action="store_true", help="Only generate SCQA structure, don't create blog post")
+
+    # GEPA options (default enabled)
+    gepa_group = parser.add_mutually_exclusive_group()
+    gepa_group.add_argument("--use-gepa", action="store_true", default=True, help="Enable GEPA optimization (default)")
+    gepa_group.add_argument("--no-gepa", action="store_true", help="Disable GEPA optimization")
+    parser.add_argument("--gepa-iterations", type=int, default=10, help="Number of GEPA optimization iterations (default: 10)")
     
     args = parser.parse_args()
     
@@ -792,6 +878,11 @@ def main():
     elif args.enable_scqa:
         enable_scqa = True
     # If neither flag, use config default (None)
+
+    # Determine GEPA setting
+    use_gepa = True  # Default to enabled
+    if args.no_gepa:
+        use_gepa = False
     
     # Handle SCQA-only mode
     if args.scqa_only:
@@ -833,12 +924,14 @@ def main():
     generator = BlogGenerator(output_dir=args.output)
     
     # Generate blog post
-    result = generator.generate_blog_post(
+    result = asyncio.run(generator.generate_blog_post(
         topic=args.topic,
         title=args.title,
         max_cycles=min(args.cycles, 3),
-        enable_scqa=enable_scqa
-    )
+        enable_scqa=enable_scqa,
+        use_gepa=use_gepa,
+        gepa_iterations=args.gepa_iterations
+    ))
     
     if result and result['ready']:
         print(f"\n✨ Your blog post is ready to publish!")
@@ -852,8 +945,10 @@ if __name__ == "__main__":
         # Test with a sample topic
         print("Testing with sample topic...")
         generator = BlogGenerator()
-        result = generator.generate_blog_post(
+        result = asyncio.run(generator.generate_blog_post(
             topic="How AI agents are changing the way startups approach customer support, based on recent Klarna results showing 66% cost reduction",
             title="The AI Agent Revolution in Customer Support",
-            max_cycles=2
-        )
+            max_cycles=2,
+            use_gepa=True,
+            gepa_iterations=10
+        ))

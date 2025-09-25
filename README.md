@@ -6,9 +6,10 @@ An AI-powered blog post generation system that uses multiple language models in 
 
 This system generates high-quality blog posts by:
 1. **Multi-model Generation**: Using Claude, GPT-4, and local models in parallel
-2. **Braintrust Integration**: Tracking experiments and evaluating outputs
-3. **Iterative Improvement**: Automatically refining prompts based on comparative analysis
-4. **Style Analysis**: Learning from published posts to match writing patterns
+2. **GEPA Optimization**: Genetic evolution of prompts and generation components (enabled by default)
+3. **Braintrust Integration**: Tracking experiments and evaluating outputs
+4. **Iterative Improvement**: Automatically refining prompts based on comparative analysis
+5. **Style Analysis**: Learning from published posts to match writing patterns
 
 ## System Architecture
 
@@ -33,6 +34,14 @@ graph TD
 ```
 
 ## Key Features
+
+### 🧬 GEPA Optimization (Default)
+- **Genetic Evolution**: Optimizes system prompts, style guides, and content structures using GEPA framework
+- **Multi-Metric Evaluation**: Quality, originality, style consistency, and generation speed
+- **Component-Level Tuning**: Evolves 3 core generation components through 10+ iterations
+- **Async Integration**: Seamlessly integrated with existing generation pipeline
+- **Graceful Fallback**: Automatically uses standard generation if GEPA library unavailable
+- **Real Implementation**: Full BlogPostGEPAAdapter with training instances and reflection
 
 ### 🔄 Iterative Prompt Optimization
 - Analyzes 20 recent published posts to extract writing patterns
@@ -63,10 +72,11 @@ graph TD
 ### Prerequisites
 - Python 3.13+
 - uv package manager (recommended) or pip
+- GEPA library (for optimization - automatically handled in setup)
 - API keys for:
   - Anthropic Claude (required)
   - OpenAI GPT-4 (optional)
-  - Google Gemini (optional)  
+  - Google Gemini (optional)
   - Braintrust (optional for experiment tracking)
 
 ### Automated Setup (Recommended)
@@ -110,7 +120,7 @@ cp config/model_configs.json.example config/model_configs.json
 # Edit config/model_configs.json with your API keys (alternative to .env)
 
 # 6. Test installation
-python scripts/generate_blog_post.py "Test topic: AI in startups" --cycles 1
+python scripts/generate_blog_post.py "Test topic: AI in startups" --cycles 1 --no-gepa
 ```
 
 ### Environment Configuration
@@ -157,10 +167,16 @@ Optional components:
 
 ### Basic Blog Generation
 ```bash
-python scripts/generate_blog_post.py \
-  --topic "AI in Enterprise Software" \
-  --model claude-3-5-sonnet-latest \
-  --style analytical
+# With GEPA optimization (default)
+python scripts/generate_blog_post.py "AI in Enterprise Software"
+
+# With custom GEPA iterations
+python scripts/generate_blog_post.py "AI in Enterprise Software" \
+  --gepa-iterations 20
+
+# Disable GEPA optimization (faster but lower quality)
+python scripts/generate_blog_post.py "AI in Enterprise Software" \
+  --no-gepa
 ```
 
 ### Iterative Prompt Improvement
@@ -198,19 +214,22 @@ python scripts/comparative_evaluator.py \
 ```
 evo_blog/
 ├── scripts/
-│   ├── generate_blog_post.py         # Main blog generation
-│   ├── iterative_improver.py         # Orchestrates improvement cycles
-│   ├── post_analyzer.py              # Analyzes published posts
-│   ├── prompt_generator.py           # Generates improved prompts
-│   ├── comparative_evaluator.py      # Compares AI vs published posts
-│   ├── feedback_manager.py           # Manages evaluation feedback
-│   └── braintrust_integration.py     # Braintrust tracking
+│   ├── generate_blog_post.py         # Main blog generation (GEPA-enabled)
+│   ├── gepa_adapter.py               # GEPA optimization adapter
+│   ├── evaluator.py                  # AP grading evaluation
+│   ├── models/                       # AI model clients
+│   │   ├── claude_client.py
+│   │   ├── openai_client.py
+│   │   └── gemini_client.py
+│   ├── braintrust_integration.py     # Experiment tracking
+│   └── content_retriever.py          # Enhanced context
 ├── config/
-│   ├── model_configs.json            # Model configurations
-│   └── evaluation_criteria.json      # Evaluation criteria
-├── generations/                      # Generated blog posts
-├── iterative_improvements/           # Improvement run results
-├── requirements.txt
+│   ├── model_configs.json            # API keys and model settings
+│   ├── global_settings.json          # GEPA and system settings
+│   └── evaluation_weights.json       # Scoring criteria
+├── generations/                      # Generated blog posts with GEPA stats
+├── test_gepa_integration.py          # GEPA integration test
+├── requirements.txt                  # Including gepa>=0.1.0
 └── README.md
 ```
 

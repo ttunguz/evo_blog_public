@@ -23,9 +23,9 @@ class ClaudeClient(ModelClient):
             'output': 0.075   # $75 per 1M output tokens
         },
         # Legacy models for compatibility
-        'claude-3-5-sonnet-20241022': {
-            'input': 0.003,   
-            'output': 0.015   
+        'claude-3-5-sonnet-latest': {
+            'input': 0.003,
+            'output': 0.015
         },
         'claude-3-5-haiku-20241022': {
             'input': 0.00025,  
@@ -175,7 +175,7 @@ class ClaudeClient(ModelClient):
         """
         if model not in self.PRICING:
             # Default to Sonnet pricing if model not found
-            model = 'claude-3-5-sonnet-20241022'
+            model = 'claude-3-5-sonnet-latest'
             
         pricing = self.PRICING[model]
         

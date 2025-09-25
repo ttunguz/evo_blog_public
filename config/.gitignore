@@ -1,0 +1,21 @@
+# API Keys and Secrets
+config/model_configs.json
+.env
+*.key
+
+# Generated content
+generations/*/raw_outputs/
+generations/*/scores/
+
+# Cache
+__pycache__/
+*.pyc
+.cache/
+
+# MacOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp

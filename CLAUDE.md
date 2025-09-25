@@ -65,14 +65,17 @@ python scripts/eval_braintrust.py --setup
 ### 4. Generate a Blog Post
 
 ```bash
-# Basic generation
+# Basic generation (GEPA enabled by default)
 python scripts/generate_blog_post.py "Your topic here"
 
 # With custom title and cycles
 python scripts/generate_blog_post.py "Your topic" --title "Post Title" --cycles 3
 
-# With GEPA optimization (advanced)
-python scripts/generate_blog_post.py "Your topic" --use_gepa --gepa_iterations 10
+# With custom GEPA iterations (advanced)
+python scripts/generate_blog_post.py "Your topic" --gepa-iterations 20
+
+# Disable GEPA optimization (faster generation)
+python scripts/generate_blog_post.py "Your topic" --no-gepa
 ```
 
 ## Usage Examples
@@ -139,11 +142,17 @@ Posts are optimized for professional business writing:
 
 ### Advanced Component Optimization
 
-The system now supports GEPA (Genetic Evolution Program Assistant) for optimizing blog generation components:
+GEPA (Genetic Evolution Program Assistant) is now enabled by default for optimizing blog generation components:
 
 ```bash
-# Enable GEPA optimization
-python scripts/generate_blog_post.py "Your topic" --use_gepa --gepa_iterations 20
+# GEPA optimization runs automatically with default 10 iterations
+python scripts/generate_blog_post.py "Your topic"
+
+# Custom GEPA iterations for advanced optimization
+python scripts/generate_blog_post.py "Your topic" --gepa-iterations 20
+
+# Disable GEPA for faster generation
+python scripts/generate_blog_post.py "Your topic" --no-gepa
 ```
 
 ### GEPA Evaluation Criteria
@@ -167,14 +176,20 @@ GEPA optimizes these text generation components:
 ### GEPA Requirements
 
 ```bash
-# Install GEPA framework
+# Install GEPA framework (required for optimization)
 pip install gepa
 
-# Required dependencies already included
-# - numpy for metric aggregation
-# - asyncio for async generation
-# - vector database for originality checking
+# Test GEPA integration
+python test_gepa_integration.py
 ```
+
+**GEPA Features Included:**
+- **BlogPostDataInstance**: Training data for optimization
+- **BlogPostGEPAAdapter**: Full GEPA adapter implementation
+- **Component Optimization**: System prompts, style guides, content structures
+- **Graceful Fallback**: Automatically uses standard generation if GEPA unavailable
+- **Fitness Evaluation**: Quality, originality, style consistency, generation speed
+- **Async Integration**: Seamless integration with existing pipeline
 
 ## Braintrust Integration
 
@@ -283,15 +298,15 @@ source evo_blog_env/bin/activate
 
 ## API Costs
 
-Typical costs per blog post:
-- **2 cycles**: $0.05-0.15
-- **3 cycles**: $0.10-0.25
+Typical costs per blog post (with GEPA enabled by default):
+- **2 cycles + GEPA**: $0.07-0.25
+- **3 cycles + GEPA**: $0.12-0.35
 
 Cost breakdown by model:
 - Claude 3.5 Sonnet (latest): ~$0.04 per post
 - GPT-4.1: ~$0.06 per post
 - Gemini 2.5 Pro: ~$0.02 per post
-- GEPA optimization: +$0.02-0.10 per optimization run
+- GEPA optimization (default): +$0.02-0.10 per generation
 
 ## Best Practices
 

@@ -28,13 +28,13 @@ class BlogGenerator:
     def load_config(self, config_path: Path = None) -> Dict:
         """Load configuration from files"""
         if not config_path:
-            config_path = self.base_dir / "global_settings.json"
+            config_path = self.base_dir / "config" / "global_settings.json"
         
         with open(config_path, 'r') as f:
             config = json.load(f)
             
         # Load evaluation weights
-        weights_path = self.base_dir / "evaluation_weights.json"
+        weights_path = self.base_dir / "config" / "evaluation_weights.json"
         with open(weights_path, 'r') as f:
             config['evaluation'] = json.load(f)
             

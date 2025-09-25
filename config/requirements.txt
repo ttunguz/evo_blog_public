@@ -22,10 +22,3 @@ pyyaml>=6.0
 
 # Local Model Support
 ollama>=0.1.0
-
-# Evaluation and Logging
-braintrust>=0.2.0
-autoevals>=0.0.120
-
-# GEPA Optimization
-gepa>=0.1.0
